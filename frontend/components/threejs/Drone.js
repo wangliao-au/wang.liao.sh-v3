@@ -17,17 +17,21 @@ export default function Drone() {
             <meshStandardMaterial color="lightblue" />
           </mesh>
         </Center>
-        <Center top position={[2.5, 0, 1]}>
+        <Center top position={[2, 0, 1]}>
           <mesh castShadow rotation={[0, Math.PI / 4, 0]}>
             <boxGeometry args={[0.5, 0.5, 0.5]} />
             <meshStandardMaterial color="indianred" />
           </mesh>
         </Center>
-        <AccumulativeShadows temporal frames={100} color="orange" colorBlend={2} toneMapped={true} alphaTest={0.9} opacity={2} scale={6}>
+        <AccumulativeShadows temporal frames={100} color="orange" colorBlend={2} toneMapped={true} alphaTest={0.9} opacity={2} scale={5}>
           <RandomizedLight amount={8} radius={4} ambient={0.5} intensity={1} position={[5, 5, -10]} bias={0.001} />
         </AccumulativeShadows>
       </group>
-      <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2} />
+      <OrbitControls
+        enableZoom={false}   // Disable zooming
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI / 2}
+      />
       <Environment preset="city" />
     </Canvas>
   )

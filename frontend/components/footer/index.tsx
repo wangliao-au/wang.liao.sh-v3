@@ -8,9 +8,9 @@ export const Footer = () => {
    return (
       <Flex
          css={{
-            py: '$20',
+            pt: '$20',
+            pb: '$5',
             px: '$6',
-            minHeight: "60vh",
          }}
       >
          <Box as={'footer'} css={{width: '100%'}}>

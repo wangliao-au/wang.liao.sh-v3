@@ -1,4 +1,5 @@
 import { Faq } from "../components/faq";
+import { Footer } from "../components/footer";
 import { Nav } from "../components/navbar/navbar";
 import { Plans } from "../components/plans";
 import { Box } from "../components/styles/box";
@@ -10,6 +11,7 @@ export default function Pricing(): JSX.Element {
       <Box as="main">
         <Plans />
         <Faq />
+        <Footer />
       </Box>
     </>
   );

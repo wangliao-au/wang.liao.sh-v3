@@ -5,6 +5,7 @@ import { Features2 } from "../components/features2";
 import { Features3 } from "../components/features3";
 import { Testimonials } from "../components/tesminonials";
 import { Statistics } from "../components/statistics";
+import { Footer } from "../components/footer";
 
 export default function About(): JSX.Element {
   return (
@@ -12,9 +13,9 @@ export default function About(): JSX.Element {
       <Nav />
       <Box as="main">
         <Features1 />
-        <Statistics />
         <Features2 />
         <Features3 />
+        <Footer />
       </Box>
     </>
   );

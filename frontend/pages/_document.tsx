@@ -26,7 +26,7 @@ class MyDocument extends Document {
          <Html lang="en">
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link
-               href="https://fonts.googleapis.com/css?family=Raleway:wght@600&display=swap"
+               href="https://fonts.googleapis.com/css?family=Ubuntu:wght@600&display=swap"
                rel="stylesheet"
             />
             <Head>{CssBaseline.flush()}</Head>

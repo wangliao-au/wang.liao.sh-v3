@@ -1,4 +1,4 @@
-import { Collapse, Text } from "@nextui-org/react";
+import { Collapse, Divider, Text } from "@nextui-org/react";
 import React from "react";
 import { BoxIcon } from "../icons/BoxIcon";
 import { Flex } from "../styles/flex";
@@ -66,28 +66,30 @@ export const Faq = () => {
           }}
           direction={"column"}
         >
-        <Collapse.Group accordion={true} shadow bordered>
-        {faqData.map((faq, index) => (
-          <Collapse key={index} title={faq.question}>
-            <Flex css={{ gap: "$5" }} justify={"start"}>
-              <BoxIcon />
-              <Flex direction={"column"} css={{ gap: "$3" }}>
-                <Text
-                  span
-                  css={{
-                    color: "$accents8",
-                  }}
-                >
-                  {faq.answer}
-                </Text>
-              </Flex>
-            </Flex>
-          </Collapse>
-        ))}
-      </Collapse.Group>
+          <Collapse.Group accordion={true} shadow bordered>
+            {faqData.map((faq, index) => (
+              <Collapse key={index} title={faq.question}>
+                <Flex css={{ gap: "$5" }} justify={"start"}>
+                  <BoxIcon />
+                  <Flex direction={"column"} css={{ gap: "$3" }}>
+                    <Text
+                      span
+                      css={{
+                        color: "$accents8",
+                      }}
+                    >
+                      {faq.answer}
+                    </Text>
+                  </Flex>
+                </Flex>
+              </Collapse>
+            ))}
+          </Collapse.Group>
+        </Flex>
       </Flex>
-      
-      </Flex>
+      <Divider
+        css={{ position: "absolute", inset: "0p", left: "0" }}
+      />
     </>
   );
 };
