@@ -55,6 +55,7 @@ export const Trial = () => {
 
   return (
     <>
+      {contextHolder}
       <Flex
         css={{
           py: "$20",
@@ -64,7 +65,7 @@ export const Trial = () => {
         direction={"column"}
         align={"center"}
       >
-        <Text h3>Let's connect</Text>
+        <Text h2>Let's connect</Text>
         <Text
           span
           css={{
@@ -77,8 +78,14 @@ export const Trial = () => {
           out!
         </Text>
 
-        <Button onClick={openModalHandler} color="gradient" shadow iconRight={<MailOutlineIcon />}>
-            Contact Me
+        <Button
+          auto
+          onClick={openModalHandler}
+          color="gradient"
+          shadow
+          iconRight={<MailOutlineIcon />}
+        >
+          Shoot me a message
         </Button>
         <Modal
           closeButton
@@ -89,7 +96,7 @@ export const Trial = () => {
           <Modal.Header>
             <Text id="modal-title" size={18}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                Thanks for reaching out!{" "}
+                Thanks for reaching out.{" "}
               </div>
             </Text>
           </Modal.Header>
@@ -111,10 +118,10 @@ export const Trial = () => {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button auto flat color="error" onPress={closeModalHandler}>
+            <Button auto ghost color="error" onPress={closeModalHandler}>
               Close
             </Button>
-            <Button auto onPress={sendHandler}>
+            <Button auto color="primary" onPress={sendHandler}>
               Send
             </Button>
           </Modal.Footer>

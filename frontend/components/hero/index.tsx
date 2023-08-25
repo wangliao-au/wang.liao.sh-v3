@@ -117,6 +117,8 @@ export const Hero = () => {
       <Flex
         css={{
           gap: "$3",
+          pt: "$10",
+          pb: "$20",
           px: "$6",
           flexDirection: "column",
           alignContent: "center",
@@ -196,8 +198,9 @@ export const Hero = () => {
             <Input
               clearable
               contentRightStyling={false}
-              placeholder="Contact me via email"
+              placeholder="Enter your email here"
               onChange={handleEmailChange}
+              labelLeft="email"
               contentRight={
                 <ContactButton onClick={openEmailModalHandler}>
                   <ContactIcon />

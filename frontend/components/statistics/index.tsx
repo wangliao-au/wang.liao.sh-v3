@@ -47,7 +47,7 @@ export const Statistics = () => {
                }}
             >
                <Flex direction={'column'}>
-                  <Text h2 css={{color: '$blue600'}}>
+                  <Text h2 css={{color: '$primary'}}>
                      $500K+
                   </Text>
                   <Text span css={{textAlign: 'center'}} weight={'medium'}>
@@ -55,7 +55,7 @@ export const Statistics = () => {
                   </Text>
                </Flex>
                <Flex direction={'column'}>
-                  <Text h2 css={{color: '$blue600'}}>
+                  <Text h2 css={{color: '$primary'}}>
                      10+
                   </Text>
                   <Text span css={{textAlign: 'center'}} weight={'medium'}>
@@ -63,7 +63,7 @@ export const Statistics = () => {
                   </Text>
                </Flex>
                <Flex direction={'column'}>
-                  <Text h2 css={{color: '$blue600'}}>
+                  <Text h2 css={{color: '$primary'}}>
                      $150+
                   </Text>
                   <Text span css={{textAlign: 'center'}} weight={'medium'}>
@@ -71,7 +71,7 @@ export const Statistics = () => {
                   </Text>
                </Flex>
                <Flex direction={'column'}>
-                  <Text h2 css={{color: '$blue600'}}>
+                  <Text h2 css={{color: '$primary'}}>
                      10+
                   </Text>
                   <Text span css={{textAlign: 'center'}} weight={'medium'}>

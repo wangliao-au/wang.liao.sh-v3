@@ -64,6 +64,28 @@ export const Nav = () => {
               </Dropdown.Button>
             </Navbar.Item>
             <Dropdown.Menu
+              onAction={(key) => {
+                console.log(key);
+                switch (key) {
+                  case "event_star":  
+                    window.open("https://eventstar-app.liao.sh/");
+                    break;
+                  case "big_brain":
+                    window.open("https://github.com/wangliao-au/bigbrain");
+                    break;
+                  case "waves":
+                    window.open("https://github.com/wangliao-au/waves");
+                    break;
+                  case "chat_gpt":
+                    window.open("https://github.com/wangliao-au/chatGPT-clone");
+                    break;
+                  case "dodo_stream":
+                    window.open("https://github.com/wangliao-au/dodo");
+                    break;
+                  default:
+                    break;
+                }
+              }}
               aria-label="ACME Projects"
               css={{
                 $$dropdownMenuWidth: "340px",
@@ -82,7 +104,7 @@ export const Nav = () => {
               }}
             >
               <Dropdown.Item
-                key="autoscaling"
+                key="event_star"
                 showFullDescription
                 description="A cloud-based event management platform empowering organizers & users to manage and book events."
                 icon={icons.scale}
@@ -90,7 +112,7 @@ export const Nav = () => {
                 EventStar
               </Dropdown.Item>
               <Dropdown.Item
-                key="usage_metrics"
+                key="big_brain"
                 showFullDescription
                 description="A Kahoot!-like application for users to create and play quizzes."
                 icon={icons.activity}
@@ -98,7 +120,7 @@ export const Nav = () => {
                 BigBrain
               </Dropdown.Item>
               <Dropdown.Item
-                key="production_ready"
+                key="waves"
                 showFullDescription
                 description="An improved version of when2meet.com for users to schedule meetings."
                 icon={icons.flash}
@@ -106,7 +128,7 @@ export const Nav = () => {
                 Waves
               </Dropdown.Item>
               <Dropdown.Item
-                key="99_uptime"
+                key="chat_gpt"
                 showFullDescription
                 description="A chatbot that can generate responses based on prompts using GPT-3.0 API."
                 icon={icons.server}
@@ -114,7 +136,7 @@ export const Nav = () => {
                 ChatGPT-Clone
               </Dropdown.Item>
               <Dropdown.Item
-                key="supreme_support"
+                key="dodo_stream"
                 showFullDescription
                 description="A online chatting platform for students to connect with each other."
                 icon={icons.user}
@@ -123,12 +145,12 @@ export const Nav = () => {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Navbar.Link href="#">About</Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
+          <Navbar.Link href="/about">About</Navbar.Link>
+          <Navbar.Link href="/pricing">Pricing</Navbar.Link>
           <Navbar.Link isActive href="#">
             Contact
           </Navbar.Link>
-          <Navbar.Link href="#">Support</Navbar.Link>
+          <Navbar.Link href="/support">Support</Navbar.Link>
         </Navbar.Content>
       </Navbar.Brand>
 

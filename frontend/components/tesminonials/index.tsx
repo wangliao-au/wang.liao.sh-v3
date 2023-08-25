@@ -1,31 +1,31 @@
-import {Button, Card, Divider, Text} from '@nextui-org/react';
-import React from 'react';
-import {QuotesIcon} from '../icons/QuotesIcon';
-import {Flex} from '../styles/flex';
+import { Button, Divider, Text } from "@nextui-org/react";
+import React from "react";
+import { Flex } from "../styles/flex";
 
 export const Testimonials = () => {
-   return (
-      <>
-         <Flex
-            direction={'column'}
-            css={{
-               'gap': '1rem',
-               'justifyContent': 'center',
-               'alignItems': 'center',
-               'px': '$6',
-               'py': '$20',
-               'flexDirection': 'column-reverse',
-               '@sm': {
-                  justifyContent: 'space-around',
-                  px: '$32',
-                  flexDirection: 'row-reverse',
-               },
-               '@md': {
-                  px: '$64',
-               },
-            }}
-         >
-            <Flex direction="column" css={{gap: '1.5rem'}}>
+  return (
+    <>
+      <Flex
+        direction={"column"}
+        css={{
+          gap: "1rem",
+          justifyContent: "center",
+          alignItems: "center",
+          px: "$6",
+          pt: "$16",
+          pb: "$12",
+          flexDirection: "column-reverse",
+          "@sm": {
+            justifyContent: "space-around",
+            px: "$32",
+            flexDirection: "row-reverse",
+          },
+          "@md": {
+            px: "$64",
+          },
+        }}
+      >
+        {/* <Flex direction="column" css={{gap: '1.5rem'}}>
                <Card>
                   <Card.Body css={{background: '$accents2'}}>
                      <Flex
@@ -163,35 +163,61 @@ export const Testimonials = () => {
                      </Flex>
                   </Card.Body>
                </Card>
-            </Flex>
-            <Flex
-               align={'start'}
-               direction={'column'}
-               css={{
-                  'alignItems': 'center',
-                  '@sm': {
-                     alignItems: 'start',
-                  },
-               }}
-            >
-               <Text span css={{color: '$blue600'}}>
-                  Most Recent Project
-               </Text>
-               <Text h3>
-                  EventStar
-               </Text>
-               <Text span css={{color: '$accents8', maxW: '600px', pb: '$8'}}>
-                  EventStar is a platform for event organizers to create and manage events, and for attendees to find and register for events.
-               </Text>
-               <Button color="gradient" shadow onClick={() => window.open('https://eventstar-app.liao.sh/')}>
-                  View Project
-               </Button>
-            </Flex>
-         </Flex>
-
-         <Divider
-            css={{position: 'absolute', inset: '0p', left: '0', mt: '$5'}}
-         />
-      </>
-   );
+            </Flex> */}
+        <Flex
+          align={"start"}
+          direction={"column"}
+          css={{
+            alignItems: "center",
+            "@sm": {
+              alignItems: "start",
+            },
+          }}
+        >
+          <Text span css={{ color: "$primary" }}>
+            Most Recent Project
+          </Text>
+          <Flex
+            css={{ gap: "$3", pb: "10pt" }}
+            align={"center"}
+            direction={"row"}
+          >
+            <img
+              src={"/icons/eventstar.png"}
+              alt="event-star"
+              width={30}
+              height={30}
+              style={{ marginBottom: "0.5rem" }}
+            />
+            <Text h2>EventStar</Text>
+          </Flex>
+          <Text span css={{ color: "$accents8", maxW: "550px", pb: "$8" }}>
+            EventStar is a fully responsive, cloud-based B2C event management
+            platform that empower organizations to create, manage, sell tickets,
+            and track statistics. It also provides a seamless experience for
+            users to discover and purchase tickets to events.
+          </Text>
+          <Button
+            color="gradient"
+            shadow
+            onClick={() => window.open("https://eventstar-app.liao.sh/")}
+            css={{ mt: "$8" }}
+          >
+            View Project
+          </Button>
+        </Flex>
+        <Flex>
+          <img
+            src={"/eventstar.svg"}
+            alt="event-star"
+            width={600}
+            height={400}
+          />
+        </Flex>
+      </Flex>
+      <Divider
+        css={{ position: "absolute", inset: "0p", left: "0", mt: "$5" }}
+      />
+    </>
+  );
 };

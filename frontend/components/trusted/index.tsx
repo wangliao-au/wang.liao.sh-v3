@@ -1,4 +1,4 @@
-import { Divider, Grid, Image, Text } from "@nextui-org/react";
+import { Divider, Grid, Text } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { AcmeLogo } from "../navbar/logo";
@@ -20,15 +20,16 @@ export const Trusted = () => {
         direction={"column"}
         align={"center"}
         css={{
-          pt: "$20",
           px: "$6",
+          pt: "$20",
+          pb: "$10",
           "@md": {
             px: "$64",
           },
         }}
       >
         <Text h2 css={{ textAlign: "center" }}>
-          Experienced across 6+ companies and organizations
+          I'm proud to have worked with <Text span css={{ color: "$primary" }}>6+</Text> companies and organizations
         </Text>
         <Text
           css={{
@@ -39,7 +40,7 @@ export const Trusted = () => {
           weight="normal"
           size={"$lg"}
         >
-          I've worked with a variety of environments and teams, from startups to
+          I've experienced with a variety of environments and teams, from startups to
           Fortune 500 companies.
         </Text>
         <Grid.Container
