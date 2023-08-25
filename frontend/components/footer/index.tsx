@@ -10,6 +10,7 @@ export const Footer = () => {
          css={{
             py: '$20',
             px: '$6',
+            minHeight: "60vh",
          }}
       >
          <Box as={'footer'} css={{width: '100%'}}>
@@ -228,7 +229,7 @@ export const Footer = () => {
                      }}
                   >
                      <Text span css={{color: '$accents8'}}>
-                        © Copyright 2021 Acme Inc.
+                        CC BY-NC-SA 4.0 © 2022-2023 LIAO, Wang
                      </Text>
                   </Flex>
                </Flex>

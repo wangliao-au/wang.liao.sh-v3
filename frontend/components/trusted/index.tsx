@@ -22,7 +22,7 @@ export const Trusted = () => {
         css={{
           px: "$6",
           pt: "$20",
-          pb: "$10",
+          minHeight: "60vh",
           "@md": {
             px: "$64",
           },

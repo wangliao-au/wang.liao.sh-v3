@@ -12,9 +12,8 @@ export const Testimonials = () => {
           justifyContent: "center",
           alignItems: "center",
           px: "$6",
-          pt: "$16",
-          pb: "$12",
           flexDirection: "column-reverse",
+          minHeight: "60vh",
           "@sm": {
             justifyContent: "space-around",
             px: "$32",
@@ -210,7 +209,7 @@ export const Testimonials = () => {
           <img
             src={"/eventstar.svg"}
             alt="event-star"
-            width={600}
+            width={500}
             height={400}
           />
         </Flex>

@@ -117,7 +117,7 @@ export const Hero = () => {
       <Flex
         css={{
           gap: "$3",
-          pt: "$10",
+          // pt: "$10",
           pb: "$20",
           px: "$6",
           flexDirection: "column",
@@ -125,9 +125,10 @@ export const Hero = () => {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
+          minHeight: "90vh",
           "@sm": {
             flexDirection: "row",
-            mt: "$20",
+            // mt: "$20",
           },
         }}
         justify={"center"}
@@ -297,22 +298,10 @@ export const Hero = () => {
           }}
         >
         <Drone />
-          {/* <iframe
-            src="https://codesandbox.io/embed/gltfjsx-400kb-drone-pbwi6i?fontsize=14&hidenavigation=1&theme=dark"
-            style={{
-              width: "100%",
-              height: "500px",
-              border: "0",
-              borderRadius: "4px",
-              overflow: "hidden",
-            }}
-            className=""
-            title="GLTFJSX 400kb drone"
-          ></iframe> */}
         </Box>
       </Flex>
       <Divider
-        css={{ position: "absolute", inset: "0p", left: "0", mt: "$10" }}
+        // css={{ position: "absolute", inset: "0p", left: "0" }}
       />
     </>
   );

@@ -58,8 +58,9 @@ export const Trial = () => {
       {contextHolder}
       <Flex
         css={{
-          py: "$20",
           px: "$6",
+          minHeight: "60vh",
+          py: '$20',
         }}
         justify={"center"}
         direction={"column"}
