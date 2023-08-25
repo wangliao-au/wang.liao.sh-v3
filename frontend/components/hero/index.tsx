@@ -241,7 +241,7 @@ export const Hero = () => {
               <Modal.Footer>
                 <Button
                   auto
-                  flat
+                  ghost
                   color="error"
                   onPress={closeEmailModalHandler}
                 >

@@ -7,7 +7,7 @@ import {
   Text,
 } from "@nextui-org/react";
 import React from "react";
-import { ModalLogin } from "../modal";
+import { ModalLogin, ModalSignUp } from "../modal";
 import { icons } from "./icons";
 import { AcmeLogo } from "./logo";
 import { useTheme as useNextTheme } from "next-themes";
@@ -208,11 +208,7 @@ export const Nav = () => {
       </Navbar.Collapse>
       <Navbar.Content>
         <ModalLogin />
-        <Navbar.Item>
-          <Button auto flat href="#">
-            Sign Up
-          </Button>
-        </Navbar.Item>
+        <ModalSignUp />
         <Navbar.Item hideIn={"xs"}>
           <Link
             color="inherit"
