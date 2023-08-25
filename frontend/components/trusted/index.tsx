@@ -1,121 +1,115 @@
-import {Button, Divider, Grid, Text} from '@nextui-org/react';
-import React from 'react';
-import {AcmeLogo} from '../navbar/logo';
-import {Flex} from '../styles/flex';
+import { Divider, Grid, Image, Text } from "@nextui-org/react";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
+import { AcmeLogo } from "../navbar/logo";
+import { Flex } from "../styles/flex";
 
 export const Trusted = () => {
-   return (
-      <>
-         <Flex
-            direction={'column'}
-            align={'center'}
-            css={{
-               'pt': '$20',
-               'px': '$6',
-               '@md': {
-                  px: '$64',
-               },
-            }}
-         >
-            <Text h2 css={{textAlign: 'center'}}>
-               Trusted by over 10000+ customers
-            </Text>
-            <Text
-               css={{
-                  color: '$accents8',
-                  maxWidth: '800px',
-                  textAlign: 'center',
-               }}
-               weight="normal"
-               size={'$lg'}
-            >
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-               eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </Text>
-            <Grid.Container
-               gap={6}
-               alignItems="center"
-               justify="center"
-               css={{
-                  'width': '100%',
-                  '@sm': {
-                     width: '100%',
-                  },
-                  '&  span': {
-                     whiteSpace: 'pre',
-                  },
-               }}
-            >
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'} justify={'center'}>
-                     <AcmeLogo />
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 1
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 2
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 3
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 4
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 5
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 6
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 7
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 8
-                     </Text>
-                  </Flex>
-               </Grid>
-            </Grid.Container>
-         </Flex>
+   const { theme } = useTheme();
+   const [brightIcon, setBrightIcon] = useState('');
 
-         <Divider
-            css={{position: 'absolute', inset: '0p', left: '0', mt: '$5'}}
-         />
-      </>
-   );
+   useEffect(() => {
+      const newIcon = theme === 'light' ? 'bright-light.png' : 'bright-dark.png';
+      setBrightIcon(newIcon);
+    }, [theme]);
+
+   console.log(theme, brightIcon);
+  return (
+    <>
+      <Flex
+        direction={"column"}
+        align={"center"}
+        css={{
+          pt: "$20",
+          px: "$6",
+          "@md": {
+            px: "$64",
+          },
+        }}
+      >
+        <Text h2 css={{ textAlign: "center" }}>
+          Experienced across 6+ companies and organizations
+        </Text>
+        <Text
+          css={{
+            color: "$accents8",
+            maxWidth: "800px",
+            textAlign: "center",
+          }}
+          weight="normal"
+          size={"$lg"}
+        >
+          I've worked with a variety of environments and teams, from startups to
+          Fortune 500 companies.
+        </Text>
+        <Grid.Container
+          gap={6}
+          alignItems="center"
+          justify="center"
+          css={{
+            width: "100%",
+            "@sm": {
+              width: "100%",
+            },
+            "&  span": {
+              whiteSpace: "pre",
+            },
+          }}
+        >
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"} justify={"center"}>
+            <img src={"/icons/volvo.svg"} alt="Volvo" width="45" height="45" />&nbsp;&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                Volvo Cars
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={"/icons/ibm.png"} alt="IBM" width="80" height="80" />&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                IBM
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={"/icons/qad.png"} alt="QAD" width="80" height="80" />
+              <Text weight={"semibold"} span size={"$lg"}>
+                QAD
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={"/icons/warrane.png"} alt="Warrane" width="45" height="45" />&nbsp;&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                Warrane College
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={"/icons/csesoc.jpeg"} alt="CSESoc" width="40" height="40" />&nbsp;&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                UNSW CSESoc
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={`/icons/${brightIcon}`} alt="Bright" width="45" height="45" />&nbsp;&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                Bright Engineering
+              </Text>
+            </Flex>
+          </Grid>
+        </Grid.Container>
+      </Flex>
+
+      <Divider
+        css={{ position: "absolute", inset: "0p", left: "0", mt: "$5" }}
+      />
+    </>
+  );
 };

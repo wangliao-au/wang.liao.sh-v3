@@ -23,7 +23,7 @@ export default function Drone() {
             <meshStandardMaterial color="indianred" />
           </mesh>
         </Center>
-        <AccumulativeShadows temporal frames={100} color="orange" colorBlend={2} toneMapped={true} alphaTest={0.9} opacity={2} scale={12}>
+        <AccumulativeShadows temporal frames={100} color="orange" colorBlend={2} toneMapped={true} alphaTest={0.9} opacity={2} scale={6}>
           <RandomizedLight amount={8} radius={4} ambient={0.5} intensity={1} position={[5, 5, -10]} bias={0.001} />
         </AccumulativeShadows>
       </group>

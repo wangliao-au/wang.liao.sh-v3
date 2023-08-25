@@ -19,6 +19,7 @@ export const Nav = () => {
   const { setTheme } = useNextTheme();
   const { isDark, type } = useTheme();
   const collapseItems = ["Projects", "About", "Pricing", "Contact", "Support"];
+
   return (
     <Navbar
       variant="sticky"
@@ -35,9 +36,11 @@ export const Nav = () => {
       <Navbar.Brand>
         <Navbar.Toggle aria-label="toggle navigation" showIn="xs" />
         <AcmeLogo />
-        <Text b color="inherit" hideIn="xs">
-          wang.liao.sh
-        </Text>
+        <Link href="/" color="text">
+            <Text b color="inherit" hideIn="xs">
+              wang.liao.sh
+            </Text>
+        </Link>
         <Navbar.Content
           hideIn="sm"
           css={{

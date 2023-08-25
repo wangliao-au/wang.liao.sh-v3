@@ -1,0 +1,6 @@
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    transform-origin: center;
+    z-index: 9999;
+}

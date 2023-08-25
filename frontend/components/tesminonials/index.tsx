@@ -27,7 +27,7 @@ export const Testimonials = () => {
          >
             <Flex direction="column" css={{gap: '1.5rem'}}>
                <Card>
-                  <Card.Body>
+                  <Card.Body css={{background: '$accents2'}}>
                      <Flex
                         css={{
                            py: '$10',
@@ -73,7 +73,7 @@ export const Testimonials = () => {
                </Card>
 
                <Card>
-                  <Card.Body>
+                  <Card.Body css={{background: '$accents2'}}>
                      <Flex
                         css={{
                            py: '$10',
@@ -119,7 +119,7 @@ export const Testimonials = () => {
                </Card>
 
                <Card>
-                  <Card.Body>
+                  <Card.Body css={{background: '$accents2'}}>
                      <Flex
                         css={{
                            py: '$10',
@@ -175,16 +175,17 @@ export const Testimonials = () => {
                }}
             >
                <Text span css={{color: '$blue600'}}>
-                  Awesome Feature
+                  Most Recent Project
                </Text>
-               <Text h3>Testimonials</Text>
+               <Text h3>
+                  EventStar
+               </Text>
                <Text span css={{color: '$accents8', maxW: '600px', pb: '$8'}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  condimentum, nisl ut aliquam lacinia, nisl nisl aliquet nisl,
-                  nec tincidunt nisl lorem eu nunc. Sed euismod, nisl ut aliquam
-                  lacinia,
+                  EventStar is a platform for event organizers to create and manage events, and for attendees to find and register for events.
                </Text>
-               <Button>Read case studies</Button>
+               <Button color="gradient" shadow onClick={() => window.open('https://eventstar-app.liao.sh/')}>
+                  View Project
+               </Button>
             </Flex>
          </Flex>
 

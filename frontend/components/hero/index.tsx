@@ -3,10 +3,7 @@ import {
   Divider,
   Input,
   Text,
-  Image,
   Modal,
-  Row,
-  Checkbox,
   Textarea,
 } from "@nextui-org/react";
 import React, { ChangeEvent, useState } from "react";
@@ -193,7 +190,7 @@ export const Hero = () => {
             wrap={"wrap"}
           >
             {/* Email Contact */}
-            <Button color="primary" onPress={downloadCVHandler}>
+            <Button color="gradient" onPress={downloadCVHandler} shadow>
               Download CV
             </Button>
             <Input
@@ -222,7 +219,7 @@ export const Hero = () => {
                       color="primary"
                       style={{ marginLeft: "0.5rem" }}
                     >
-                      wang.liao.sh
+                      {email}
                     </Text>
                   </div>
                 </Text>
