@@ -95,7 +95,7 @@ export const Nav = () => {
       {contextHolder}
       <Navbar
         variant="sticky"
-        // shouldHideOnScroll
+        shouldHideOnScroll
         isBordered
         // css={{
         //   overflow: "hidden",
@@ -107,12 +107,14 @@ export const Nav = () => {
       >
         <Navbar.Brand>
           <Navbar.Toggle aria-label="toggle navigation" showIn="xs" />
-          <AcmeLogo />
-          <Link href="/" color="text">
+          <Link href="/" >
+          <img src="icons/wang.png" alt="logo" width="150px" height="80px" />
+          </Link>
+          {/* <Link href="/" color="text">
             <Text b color="inherit" hideIn="xs">
               wang.liao.sh
             </Text>
-          </Link>
+          </Link> */}
           <Navbar.Content
             hideIn="sm"
             css={{
@@ -219,11 +221,11 @@ export const Nav = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Navbar.Link href="/about">About</Navbar.Link>
-            <Navbar.Link href="/pricing">Pricing</Navbar.Link>
             <Navbar.Link isActive onClick={openModalHandler}>
               Contact
             </Navbar.Link>
+            <Navbar.Link href="/about">About</Navbar.Link>
+            <Navbar.Link href="/pricing">Pricing</Navbar.Link>
             <Modal
               closeButton
               aria-labelledby="modal-title"

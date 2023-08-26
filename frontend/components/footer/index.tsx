@@ -1,240 +1,271 @@
-import {Divider, Text} from '@nextui-org/react';
-import React from 'react';
-import {AcmeLogo} from '../navbar/logo';
-import {Box} from '../styles/box';
-import {Flex} from '../styles/flex';
+import { Divider, Text } from "@nextui-org/react";
+import Link from "next/link";
+import React from "react";
+import { AcmeLogo } from "../navbar/logo";
+import { Box } from "../styles/box";
+import { Flex } from "../styles/flex";
 
 export const Footer = () => {
-   return (
-      <Flex
-         css={{
-            pt: '$20',
-            pb: '$5',
-            px: '$6',
-         }}
-      >
-         <Box as={'footer'} css={{width: '100%'}}>
-            <Flex
-               justify={'center'}
-               wrap={'wrap'}
-               align={'center'}
-               css={{
-                  'gap': '$10',
-                  '&  ul': {
-                     margin: 0,
-                  },
-                  '@sm': {},
-               }}
-            >
-               <Flex
-                  css={{gap: '$5', w: '250px'}}
-                  direction={'column'}
-                  align={'center'}
-               >
-                  <AcmeLogo />
-                  <Box as={'ul'} css={{gap: '$5', listStyle: 'none'}}>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           First Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Second Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Third Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Forth Link
-                        </Text>
-                     </Box>
-                  </Box>
-               </Flex>
-               <Flex
-                  css={{gap: '$5', w: '250px'}}
-                  direction={'column'}
-                  align={'center'}
-               >
-                  <Text h5>Resources</Text>
-                  <Box as={'ul'} css={{gap: '$5', listStyle: 'none'}}>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           First Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Second Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Third Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Forth Link
-                        </Text>
-                     </Box>
-                  </Box>
-               </Flex>
-               <Flex
-                  css={{gap: '$5', w: '250px'}}
-                  direction={'column'}
-                  align={'center'}
-               >
-                  <Text h5>Contact</Text>
-                  <Box as={'ul'} css={{gap: '$5', listStyle: 'none'}}>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           First Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Second Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Third Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Forth Link
-                        </Text>
-                     </Box>
-                  </Box>
-               </Flex>
-               <Flex
-                  css={{gap: '$5', w: '250px'}}
-                  direction={'column'}
-                  align={'center'}
-               >
-                  <Text h5>Legal</Text>
-                  <Box as={'ul'} css={{gap: '$5', listStyle: 'none'}}>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           First Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Second Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Third Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Forth Link
-                        </Text>
-                     </Box>
-                  </Box>
-               </Flex>
-               <Flex
-                  css={{gap: '$5', w: '250px'}}
-                  direction={'column'}
-                  align={'center'}
-               >
-                  <Text h5>Press</Text>
-                  <Box as={'ul'} css={{gap: '$5', listStyle: 'none'}}>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           First Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Second Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Third Link
-                        </Text>
-                     </Box>
-                     <Box as={'li'}>
-                        <Text span css={{color: '$accents8'}}>
-                           Forth Link
-                        </Text>
-                     </Box>
-                  </Box>
-               </Flex>
-            </Flex>
+  return (
+    <Flex
+      css={{
+        pt: "$20",
+        pb: "$5",
+        px: "$6",
+      }}
+    >
+      <Box as={"footer"} css={{ width: "100%" }}>
+        <Flex
+          justify={"center"}
+          wrap={"wrap"}
+          align={"center"}
+          css={{
+            gap: "$10",
+            "&  ul": {
+              margin: 0,
+            },
+            "@sm": {},
+          }}
+        >
+          <Flex
+            css={{ gap: "$5", w: "250px" }}
+            direction={"column"}
+            align={"center"}
+          >
+          <img src="icons/wang.png" alt="logo" width="200px" height="100px" />
             <Box
-               css={{
-                  'px': '$10',
-                  '@md': {
-                     px: '$56',
-                  },
-               }}
+              as={"ul"}
+              css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
+            ></Box>
+          </Flex>
+          <Flex
+            css={{ gap: "$5", w: "250px" }}
+            direction={"column"}
+            align={"center"}
+          >
+            <Text h5>Services</Text>
+            <Box
+              as={"ul"}
+              css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
             >
-               <Divider
+              <Box as={"li"}>
+                <Text
+                  h6
                   css={{
-                     mt: '$14',
-                     display: 'flex',
-                     justifyContent: 'center',
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
                   }}
-               />
-               <Flex
-                  //   justify={'between'}
-                  align={'center'}
-                  wrap={'wrap'}
+                >
+                  <Link href="/support">Support</Link>
+                </Text>
+              </Box>
+              <Box as={"li"}>
+                <Text
+                  h6
                   css={{
-                     'pt': '$8',
-                     'gap': '$10',
-                     'justifyContent': 'center',
-                     '@md': {
-                        justifyContent: 'space-between',
-                     },
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
                   }}
-               >
-                  <Flex
-                     css={{
-                        gap: '$10',
-                     }}
-                     wrap={'wrap'}
-                  >
-                     <AcmeLogo />
-                     <AcmeLogo />
-                     <AcmeLogo />
-                     <AcmeLogo />
-                  </Flex>
-                  <Flex
-                     css={{
-                        gap: '$6',
-                     }}
-                  >
-                     <Text h6 css={{color: '$accents8'}}>
-                        Terms of Service
-                     </Text>
-                     <Text h6 css={{color: '$accents8'}}>
-                        Privacy Policy
-                     </Text>
-                  </Flex>
-                  <Flex
-                     css={{
-                        gap: '$6',
-                     }}
-                  >
-                     <Text h6 css={{color: '$accents8'}}>
-                        CC BY-NC-SA 4.0 © 2022-2023 LIAO, Wang
-                     </Text>
-                  </Flex>
-               </Flex>
+                >
+                  <Link href="/support">Pricing</Link>
+                </Text>
+              </Box>
             </Box>
-         </Box>
-      </Flex>
-   );
+          </Flex>
+          <Flex
+            css={{ gap: "$5", w: "250px" }}
+            direction={"column"}
+            align={"center"}
+          >
+            <Text h5>About Me</Text>
+            <Box
+              as={"ul"}
+              css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
+            >
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                  onClick={() =>
+                    window.open("https://www.unsw.edu.au/homepage/", "_blank")
+                  }
+                >
+                  Education
+                </Text>
+              </Box>
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                  onClick={() =>
+                    window.open("https://www.9degrees.com.au/", "_blank")
+                  }
+                >
+                  Interests
+                </Text>
+              </Box>
+            </Box>
+          </Flex>
+          <Flex
+            css={{ gap: "$5", w: "250px" }}
+            direction={"column"}
+            align={"center"}
+          >
+            <Text h5>Contact</Text>
+            <Box
+              as={"ul"}
+              css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
+            >
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                  onClick={() =>
+                    window.open("https://www.instagram.com/1tsleon/", "_blank")
+                  }
+                >
+                  Linkedin
+                </Text>
+              </Box>
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                >
+                  Instagram
+                </Text>
+              </Box>
+            </Box>
+          </Flex>
+
+          {/* <Flex
+            css={{ gap: "$5", w: "250px" }}
+            direction={"column"}
+            align={"center"}
+          >
+            <Text h5>Legal</Text>
+            <Box
+              as={"ul"}
+              css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
+            >
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                >
+                  Terms of Service
+                </Text>
+              </Box>
+              <Box as={"li"}>
+                <Text
+                  h6
+                  css={{
+                    color: "$accents8",
+                    textDecoration: "none", // Start with no underline
+                    cursor: "pointer",
+                    "&:hover": {
+                      textDecoration: "underline", // Apply underline on hover
+                    },
+                  }}
+                >
+                  Privacy Policy
+                </Text>
+              </Box>
+            </Box>
+          </Flex> */}
+        </Flex>
+        <Box
+          css={{
+            px: "$10",
+            "@md": {
+              px: "$56",
+            },
+          }}
+        >
+          <Divider
+            css={{
+              mt: "$14",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          />
+          <Flex
+            //   justify={'between'}
+            align={"center"}
+            wrap={"wrap"}
+            css={{
+              pt: "$8",
+              gap: "$10",
+              justifyContent: "center",
+              "@md": {
+                justifyContent: "center",
+              },
+            }}
+          >
+            {/* <Flex
+              css={{
+                gap: "$10",
+              }}
+              wrap={"wrap"}
+            >
+              <AcmeLogo />
+              <AcmeLogo />
+              <AcmeLogo />
+              <AcmeLogo />
+            </Flex> */}
+            <Flex
+              css={{
+                gap: "$6",
+              }}
+            >
+              <Text h6>CC BY-NC-SA 4.0 © 2022-2023 LIAO, Wang</Text>
+            </Flex>
+          </Flex>
+        </Box>
+      </Box>
+    </Flex>
+  );
 };
