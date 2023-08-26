@@ -13,10 +13,11 @@ import { Flex } from "../styles/flex";
 import { ContactButton } from "../icons/ContactButton";
 import { ContactIcon } from "../icons/ContactIcon";
 import { notification } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import confetti from "canvas-confetti";
 import Drone from "../threejs/Drone";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import Face2Icon from '@mui/icons-material/Face2';
 
 type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
@@ -33,9 +34,10 @@ export const Hero = () => {
     description?: string
   ) => {
     api.info({
+      duration: 3.5,
       message: msg,
       description: description,
-      icon: <SmileOutlined style={{ color: "#108ee9" }} rev />,
+      icon: <Face2Icon />,
     });
   };
 
@@ -194,7 +196,7 @@ export const Hero = () => {
             wrap={"wrap"}
           >
             {/* Email Contact */}
-            <Button color="gradient" onPress={downloadCVHandler} shadow>
+            <Button color="gradient" onPress={downloadCVHandler} shadow ghost iconRight={<PersonAddIcon />}>
               Download CV
             </Button>
             <Input
@@ -231,6 +233,7 @@ export const Hero = () => {
               </Modal.Header>
               <Modal.Body css={{ py: "$14" }}>
                 <Textarea
+                  autoFocus
                   labelPlaceholder="Enter your message here..."
                   status="default"
                   rows={14}
@@ -247,7 +250,7 @@ export const Hero = () => {
                 >
                   Close
                 </Button>
-                <Button auto onPress={sendEmailHandler}>
+                <Button auto onPress={sendEmailHandler} >
                   Send
                 </Button>
               </Modal.Footer>

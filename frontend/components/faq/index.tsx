@@ -68,12 +68,11 @@ export const Faq = () => {
         >
           <Collapse.Group accordion={true} shadow bordered>
             {faqData.map((faq, index) => (
-              <Collapse key={index} title={faq.question}>
+              <Collapse key={index} title={<Text h4> {faq.question}</Text>}>
                 <Flex css={{ gap: "$5" }} justify={"start"}>
                   <BoxIcon />
                   <Flex direction={"column"} css={{ gap: "$3" }}>
                     <Text
-                      span
                       css={{
                         color: "$accents8",
                       }}
@@ -87,9 +86,7 @@ export const Faq = () => {
           </Collapse.Group>
         </Flex>
       </Flex>
-      <Divider
-        css={{ position: "absolute", inset: "0p", left: "0" }}
-      />
+      <Divider css={{ position: "absolute", inset: "0p", left: "0" }} />
     </>
   );
 };

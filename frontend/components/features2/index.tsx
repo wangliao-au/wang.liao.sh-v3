@@ -11,11 +11,11 @@ export const Features2 = () => {
             direction={'column'}
             css={{
                'gap': '1rem',
+               'mt': '$10',
                'pt': '$20',
                'justifyContent': 'center',
                'alignItems': 'center',
                'px': '$6',
-
                '@sm': {
                   gap: '5rem',
                   flexDirection: 'row-reverse',

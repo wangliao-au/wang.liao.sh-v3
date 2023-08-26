@@ -1,3 +1,4 @@
+import AppsIcon from '@mui/icons-material/Apps';
 import { Button, Divider, Text } from "@nextui-org/react";
 import React from "react";
 import { Flex } from "../styles/flex";
@@ -13,7 +14,6 @@ export const Testimonials = () => {
           alignItems: "center",
           px: "$6",
           flexDirection: "column-reverse",
-          minHeight: "60vh",
           "@sm": {
             justifyContent: "space-around",
             px: "$32",
@@ -201,6 +201,8 @@ export const Testimonials = () => {
             shadow
             onClick={() => window.open("https://eventstar-app.liao.sh/")}
             css={{ mt: "$8" }}
+            ghost
+            iconRight={<AppsIcon />}
           >
             View Project
           </Button>
@@ -214,9 +216,13 @@ export const Testimonials = () => {
           />
         </Flex>
       </Flex>
-      <Divider
-        css={{ position: "absolute", inset: "0p", left: "0", mt: "$5" }}
-      />
+      {/* <Divider
+        css={{
+          position: "absolute",
+          inset: "0p",
+          left: "0",
+          mt: "$5",
+        }} */}
     </>
   );
 };

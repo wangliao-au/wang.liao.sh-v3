@@ -19,10 +19,10 @@ import { useTheme } from "@nextui-org/react";
 import { GithubIcon } from "../icons/GithubIcon";
 import LinkedInIcon from "../icons/LinkedInIcon";
 import { notification } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import apiRequest from "../../utils/api";
 import { Context } from "../../pages/_app";
+import Face2Icon from '@mui/icons-material/Face2';
 
 export const Nav = () => {
   const { setTheme } = useNextTheme();
@@ -33,16 +33,16 @@ export const Nav = () => {
   const [messageText, setMessageText] = useState("");
   const [api, contextHolder] = notification.useNotification();
   const {getters, setters} = useContext(Context);
+  const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
     const tokenValidation = async () => {
       const response = await apiRequest("GET", "/api/auth/tokenValidation");
       if (response.status === 200) {
-        console.log("token is valid");
-        setters.setIsAuth(true);
+        setIsVerified(true);
+        openNotification("topRight", "Welcome back!", response.email);
       } else {
-        console.log("token is invalid");
-        setters.setIsAuth(false);
+        setIsVerified(false);
       }
     };
     tokenValidation();
@@ -63,9 +63,10 @@ export const Nav = () => {
     description?: string
   ) => {
     api.info({
+      duration: 3.5,
       message: msg,
       description: description,
-      icon: <SmileOutlined style={{ color: "#108ee9" }} rev />,
+      icon: <Face2Icon />,
     });
   };
 
@@ -107,7 +108,7 @@ export const Nav = () => {
       >
         <Navbar.Brand>
           <Navbar.Toggle aria-label="toggle navigation" showIn="xs" />
-          <Link href="/" >
+          <Link href="/">
           <img src="icons/wang.png" alt="logo" width="150px" height="80px" />
           </Link>
           {/* <Link href="/" color="text">
@@ -241,6 +242,7 @@ export const Nav = () => {
               </Modal.Header>
               <Modal.Body css={{ pt: "$8", pb: "$14" }}>
                 <Input
+                  autoFocus
                   css={{ pb: "$12" }}
                   bordered
                   clearable
@@ -277,7 +279,8 @@ export const Nav = () => {
                 css={{
                   minWidth: "100%",
                 }}
-                href="#"
+                href={index === 0 ? "https://www.linkedin.com/in/wangliao-au/" : `/${item.toLowerCase()}`}
+                target={index === 0 ? "_blank" : ""}
               >
                 {item}
               </Link>
@@ -322,7 +325,7 @@ export const Nav = () => {
           </Navbar.CollapseItem>
         </Navbar.Collapse>
         <Navbar.Content>
-          {getters.isAuth ? (
+          {isVerified ? (
             <>
               <Button auto flat onClick={handleLogout}>
                 Log out

@@ -10,9 +10,9 @@ import {
 import React, { ChangeEvent, useState } from "react";
 import { Flex } from "../styles/flex";
 import { notification } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import Face2Icon from '@mui/icons-material/Face2';
 
 export const Trial = () => {
   const [email, setEmail] = useState("");
@@ -26,9 +26,10 @@ export const Trial = () => {
     description?: string
   ) => {
     api.info({
+      duration: 3.5,
       message: msg,
       description: description,
-      icon: <SmileOutlined style={{ color: "#108ee9" }} rev />,
+      icon: <Face2Icon />,
     });
   };
 
@@ -59,7 +60,6 @@ export const Trial = () => {
       <Flex
         css={{
           px: "$6",
-          minHeight: "60vh",
           py: '$20',
         }}
         justify={"center"}
@@ -84,6 +84,7 @@ export const Trial = () => {
           onClick={openModalHandler}
           color="gradient"
           shadow
+          ghost
           iconRight={<MailOutlineIcon />}
         >
           Shoot me a message
@@ -103,6 +104,7 @@ export const Trial = () => {
           </Modal.Header>
           <Modal.Body css={{ pt: "$8", pb: "$14" }}>
             <Input
+              autoFocus
               css={{ pb: "$12" }}
               bordered
               clearable

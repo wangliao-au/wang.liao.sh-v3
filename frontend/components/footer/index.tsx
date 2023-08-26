@@ -1,11 +1,15 @@
+import { Instagram, LinkedIn } from "@mui/icons-material";
 import { Divider, Text } from "@nextui-org/react";
 import Link from "next/link";
-import React from "react";
-import { AcmeLogo } from "../navbar/logo";
+import React, { useEffect } from "react";
 import { Box } from "../styles/box";
 import { Flex } from "../styles/flex";
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Flex
       css={{
@@ -32,7 +36,14 @@ export const Footer = () => {
             direction={"column"}
             align={"center"}
           >
-          <img src="icons/wang.png" alt="logo" width="200px" height="100px" />
+            <a onClick={scrollToTop}>
+              <img
+                src="icons/wang.png"
+                alt="logo"
+                width="200px"
+                height="100px"
+              />
+            </a>
             <Box
               as={"ul"}
               css={{ gap: "$5", listStyle: "none", textAlign: "center" }}
@@ -75,7 +86,7 @@ export const Footer = () => {
                     },
                   }}
                 >
-                  <Link href="/support">Pricing</Link>
+                  <Link href="/pricing">Pricing</Link>
                 </Text>
               </Box>
             </Box>
@@ -142,33 +153,31 @@ export const Footer = () => {
                 <Text
                   h6
                   css={{
-                    color: "$accents8",
                     textDecoration: "none", // Start with no underline
                     cursor: "pointer",
-                    "&:hover": {
-                      textDecoration: "underline", // Apply underline on hover
-                    },
                   }}
                   onClick={() =>
-                    window.open("https://www.instagram.com/1tsleon/", "_blank")
+                    window.open(
+                      "https://www.linkedin.com/in/wangliao-au/",
+                      "_blank"
+                    )
                   }
                 >
-                  Linkedin
+                  <LinkedIn />
                 </Text>
               </Box>
               <Box as={"li"}>
                 <Text
                   h6
                   css={{
-                    color: "$accents8",
                     textDecoration: "none", // Start with no underline
                     cursor: "pointer",
-                    "&:hover": {
-                      textDecoration: "underline", // Apply underline on hover
-                    },
                   }}
+                  onClick={() =>
+                    window.open("https://www.instagram.com/1tsleon/", "_blank")
+                  }
                 >
-                  Instagram
+                  <Instagram />
                 </Text>
               </Box>
             </Box>
@@ -245,17 +254,6 @@ export const Footer = () => {
               },
             }}
           >
-            {/* <Flex
-              css={{
-                gap: "$10",
-              }}
-              wrap={"wrap"}
-            >
-              <AcmeLogo />
-              <AcmeLogo />
-              <AcmeLogo />
-              <AcmeLogo />
-            </Flex> */}
             <Flex
               css={{
                 gap: "$6",

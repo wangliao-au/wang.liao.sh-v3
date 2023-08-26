@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Modal, Input, Button, Text, Navbar } from "@nextui-org/react";
 import { notification } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import apiRequest from "../../utils/api";
 import { Context } from "../../pages/_app";
+import Face2Icon from '@mui/icons-material/Face2';
 
 export const ModalLogin = () => {
   const [visible, setVisible] = useState(false);
@@ -12,7 +12,7 @@ export const ModalLogin = () => {
   const [api, contextHolder] = notification.useNotification();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {getters, setters} = useContext(Context);
+  const { getters, setters } = useContext(Context);
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -20,9 +20,10 @@ export const ModalLogin = () => {
     description?: string
   ) => {
     api.info({
+      duration: 3.5,
       message: msg,
       description: description,
-      icon: <SmileOutlined style={{ color: "#108ee9" }} rev />,
+      icon: <Face2Icon/>,
     });
   };
 
@@ -35,14 +36,12 @@ export const ModalLogin = () => {
       email: email,
       password: password,
     });
-    if (response.token !== undefined) localStorage.setItem("token", response.token);
     if (response.status === 200) {
       setters.setIsAuth(true);
-      openNotification("topRight", response.message);
-    } else {
-      openNotification("topRight", response.message);
+      localStorage.setItem("token", response.token);
     }
     setVisible(false);
+    openNotification("topRight", response.message);
     setEmail("");
     setPassword("");
   };
@@ -51,7 +50,9 @@ export const ModalLogin = () => {
     <>
       {contextHolder}
       <div>
-        <Navbar.Link onClick={handler}>Login</Navbar.Link>
+        <Button auto shadow onClick={handler} color="gradient">
+          Login
+        </Button>
         <Modal
           closeButton
           blur
@@ -108,16 +109,17 @@ export const ModalSignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
+
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
     description?: string
   ) => {
     api.info({
+      duration: 3.5,
       message: msg,
       description: description,
-      icon: <SmileOutlined style={{ color: "#108ee9" }} rev />,
+      icon: <Face2Icon />,
     });
   };
 
@@ -131,12 +133,8 @@ export const ModalSignUp = () => {
       password: password,
       confirmPassword: confirmPassword,
     });
-    if (response.status === 200) {
-      openNotification("topRight", response.message);
-    } else {
-      openNotification("topRight", response.message);
-    }
     setVisible(false);
+    openNotification("topRight", response.message);
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -146,7 +144,7 @@ export const ModalSignUp = () => {
     <>
       {contextHolder}
       <div>
-        <Button auto flat onClick={handler}>
+        <Button auto ghost shadow onClick={handler} color="gradient">
           Sign Up
         </Button>
         <Modal

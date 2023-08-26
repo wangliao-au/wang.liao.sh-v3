@@ -12,6 +12,10 @@ const router = express.Router();
 router.post('/signup', async (req, res) => {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).json({ message: 'Missing email or password' });
+    }
+
     // Validate email format
     if (!validator.isEmail(email)) {
         return res.status(400).json({ message: 'Invalid email format' });
@@ -39,6 +43,10 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).json({ message: 'Missing email or password' });
+    }
+
     // Validate email format
     if (!validator.isEmail(email)) {
         return res.status(400).json({ message: 'Invalid email format' });
@@ -56,8 +64,14 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/tokenValidation', authenticate, (req, res) => {
-    res.json({ status: 200, message: 'Valid token' });
+router.get('/tokenValidation', authenticate, async (req: any, res: any) => {
+    const u_id = req.user._id;
+    const user = await User.findById(u_id);
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+    const email = user.email;
+    res.json({ status: 200, message: 'Valid token', email });
 });
 
 function authenticate(req: any, res: any, next: any) {
@@ -69,6 +83,7 @@ function authenticate(req: any, res: any, next: any) {
     jwt.verify(token, secret, (err: any, user: any) => {
         if (err) return res.sendStatus(403);
         req.user = user;
+        console.log('User authenticated via token', user);
         next();
     });
 }

@@ -85,15 +85,7 @@ export const Trusted = () => {
             <Flex align={"center"}>
             <img src={"/icons/warrane.png"} alt="Warrane" width="45" height="45" />&nbsp;&nbsp;
               <Text weight={"semibold"} span size={"$lg"}>
-                Warrane College
-              </Text>
-            </Flex>
-          </Grid>
-          <Grid sm={4} xs={6} justify="center">
-            <Flex align={"center"}>
-            <img src={"/icons/csesoc.jpeg"} alt="CSESoc" width="40" height="40" />&nbsp;&nbsp;
-              <Text weight={"semibold"} span size={"$lg"}>
-                UNSW CSESoc
+                Warrane UNSW
               </Text>
             </Flex>
           </Grid>
@@ -101,7 +93,15 @@ export const Trusted = () => {
             <Flex align={"center"}>
             <img src={`/icons/${brightIcon}`} alt="Bright" width="45" height="45" />&nbsp;&nbsp;
               <Text weight={"semibold"} span size={"$lg"}>
-                Bright Engineering
+                Bright
+              </Text>
+            </Flex>
+          </Grid>
+          <Grid sm={4} xs={6} justify="center">
+            <Flex align={"center"}>
+            <img src={"/icons/csesoc.jpeg"} alt="CSESoc" width="40" height="40" />&nbsp;&nbsp;
+              <Text weight={"semibold"} span size={"$lg"}>
+                CSESoc UNSW
               </Text>
             </Flex>
           </Grid>
