@@ -10,7 +10,7 @@ import {
   Text,
   Textarea,
 } from "@nextui-org/react";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import { ModalLogin, ModalSignUp } from "../modal";
 import { icons } from "./icons";
 import { AcmeLogo } from "./logo";
@@ -21,6 +21,8 @@ import LinkedInIcon from "../icons/LinkedInIcon";
 import { notification } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
+import apiRequest from "../../utils/api";
+import { Context } from "../../pages/_app";
 
 export const Nav = () => {
   const { setTheme } = useNextTheme();
@@ -30,6 +32,30 @@ export const Nav = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [messageText, setMessageText] = useState("");
   const [api, contextHolder] = notification.useNotification();
+  const {getters, setters} = useContext(Context);
+
+  useEffect(() => {
+    const tokenValidation = async () => {
+      const response = await apiRequest("GET", "/api/auth/tokenValidation");
+      if (response.status === 200) {
+        console.log("token is valid");
+        setters.setIsAuth(true);
+      } else {
+        console.log("token is invalid");
+        setters.setIsAuth(false);
+      }
+    };
+    tokenValidation();
+  }, [getters.isAuth]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setters.setIsAuth(false);
+    openNotification(
+      "topRight",
+      "Successfully logged out.",
+    );
+  };
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -294,8 +320,18 @@ export const Nav = () => {
           </Navbar.CollapseItem>
         </Navbar.Collapse>
         <Navbar.Content>
-          <ModalLogin />
-          <ModalSignUp />
+          {getters.isAuth ? (
+            <>
+              <Button auto flat onClick={handleLogout}>
+                Log out
+              </Button>
+            </>
+          ) : (
+            <>
+              <ModalLogin />
+              <ModalSignUp />
+            </>
+          )}
           <Navbar.Item hideIn={"xs"}>
             <Link
               color="inherit"

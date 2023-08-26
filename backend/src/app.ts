@@ -1,5 +1,6 @@
 import express from 'express';
 import session from 'express-session';
+import cors from 'cors';
 import mongoose, { ConnectOptions } from 'mongoose';
 import authRoutes from './routes/auth';
 import dotenv from 'dotenv';
@@ -14,10 +15,34 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PA
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB');
 });
 
+
 const app = express();
+
+app.use(cors({ // Allow requests from http://localhost:3001
+    origin: 'http://localhost:3001',
+    credentials: true  // This allows cookies to be sent across origins
+}));
+
+// Custom middleware to log request and response details
+app.use((req: any, res: any, next) => {
+    const startTime: any = new Date();
+    console.log(`[${startTime.toISOString()}] ${req.method} ${req.url}`);
+
+    // Capture the original res.send function to log response status
+    const originalSend = res.send;
+    res.send = function (...args: any) {
+        const endTime: any = new Date();
+        const duration = endTime - startTime;
+        console.log(`[${endTime.toISOString()}] Response status: ${res.statusCode}`);
+        console.log(`Duration: ${duration}ms`);
+        originalSend.apply(res, args);
+    };
+
+    next();
+});
 
 app.use(session({
     secret: secret, // for signing the session id cookie

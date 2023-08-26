@@ -216,10 +216,10 @@ export const Footer = () => {
                         gap: '$6',
                      }}
                   >
-                     <Text span css={{color: '$accents8'}}>
+                     <Text h6 css={{color: '$accents8'}}>
                         Terms of Service
                      </Text>
-                     <Text span css={{color: '$accents8'}}>
+                     <Text h6 css={{color: '$accents8'}}>
                         Privacy Policy
                      </Text>
                   </Flex>
@@ -228,7 +228,7 @@ export const Footer = () => {
                         gap: '$6',
                      }}
                   >
-                     <Text span css={{color: '$accents8'}}>
+                     <Text h6 css={{color: '$accents8'}}>
                         CC BY-NC-SA 4.0 © 2022-2023 LIAO, Wang
                      </Text>
                   </Flex>

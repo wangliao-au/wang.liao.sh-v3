@@ -2,6 +2,7 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import validator from 'validator';
 import User from '../models/user';
 dotenv.config();
 const secret: string = process.env.SESSION_SECRET || '';
@@ -9,37 +10,54 @@ const secret: string = process.env.SESSION_SECRET || '';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-    console.log(req.body);
     const { email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ email, password: hashedPassword });
+    // Validate email format
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({ message: 'Invalid email format' });
+    }
+
+    if (password !== req.body.confirmPassword) {
+        return res.status(400).json({ message: 'Passwords do not match' });
+    }
 
     try {
+        // Check if a user with the provided email already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(409).json({ message: 'User already exists' });
+        }
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = new User({ email, password: hashedPassword });
         await user.save();
         res.status(201).json({ message: 'Welcome to the club!' });
-    }
-    catch (e: any) {
+    } catch (e: any) {
         res.status(400).json({ message: e.message });
     }
 });
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
+
+    // Validate email format
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({ message: 'Invalid email format' });
+    }
+
     const user = await User.findOne({ email });
 
     if (!user) {
-        return res.status(400).json({ message: 'User not found' });
+        return res.status(404).json({ message: 'User not found' });
     } else if (!await bcrypt.compare(password, user.password)) {
         return res.status(400).json({ message: 'Invalid credentials' });
     } else {
         const token = jwt.sign({ _id: user._id }, secret);
-        return res.status(200).json({ token, message: 'Welcome back!' });
+        return res.json({ status: 200, token, message: 'Welcome back!' });
     }
 });
 
-router.get('/protected', authenticate, async (req, res) => {
-    res.send('You have reached the protected endpoint!');
+router.get('/tokenValidation', authenticate, (req, res) => {
+    res.json({ status: 200, message: 'Valid token' });
 });
 
 function authenticate(req: any, res: any, next: any) {

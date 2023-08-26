@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Modal, Input, Button, Text, Navbar } from "@nextui-org/react";
 import { notification } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
 import type { NotificationPlacement } from "antd/es/notification/interface";
+import apiRequest from "../../utils/api";
+import { Context } from "../../pages/_app";
 
 export const ModalLogin = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const [api, contextHolder] = notification.useNotification();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {getters, setters} = useContext(Context);
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -23,12 +28,23 @@ export const ModalLogin = () => {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
-  const sendHandler = () => {
-    openNotification("topRight", "Welcome back!");
+  const sendHandler = async () => {
+    const response = await apiRequest("POST", "/api/auth/login", {
+      email: email,
+      password: password,
+    });
+    if (response.token !== undefined) localStorage.setItem("token", response.token);
+    if (response.status === 200) {
+      setters.setIsAuth(true);
+      openNotification("topRight", response.message);
+    } else {
+      openNotification("topRight", response.message);
+    }
     setVisible(false);
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -54,10 +70,12 @@ export const ModalLogin = () => {
             <Input
               bordered
               clearable
-              type="test"
-              label="Username"
-              placeholder="Enter your username"
+              type="email"
+              label="Email"
+              placeholder="Enter your email"
               css={{ px: "$12" }}
+              onChange={(e) => setEmail(e.target.value)}
+              autoFocus
             />
             <Input.Password
               bordered
@@ -66,6 +84,7 @@ export const ModalLogin = () => {
               label="Password"
               placeholder="Enter your password"
               css={{ px: "$12", mt: "$4" }}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Modal.Body>
           <Modal.Footer css={{ mt: "$8" }}>
@@ -83,10 +102,13 @@ export const ModalLogin = () => {
 };
 
 export const ModalSignUp = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const [api, contextHolder] = notification.useNotification();
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
@@ -101,12 +123,23 @@ export const ModalSignUp = () => {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
-  const sendHandler = () => {
-    openNotification("topRight", "Welcome to the club!");
+  const sendHandler = async () => {
+    const response = await apiRequest("POST", "/api/auth/signup", {
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    });
+    if (response.status === 200) {
+      openNotification("topRight", response.message);
+    } else {
+      openNotification("topRight", response.message);
+    }
     setVisible(false);
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
@@ -126,17 +159,19 @@ export const ModalSignUp = () => {
           <Modal.Header>
             <Text id="modal-title" size={18}>
               <Text b size={18}>
-                  Create your account
+                Create your account
               </Text>
             </Text>
           </Modal.Header>
           <Modal.Body css={{ mt: "$6" }}>
             <Input
+              autoFocus
               bordered
               clearable
-              type="test"
-              label="Username"
-              placeholder="Enter your username"
+              type="email"
+              label="Email"
+              placeholder="Enter your email"
+              onChange={(e) => setEmail(e.target.value)}
               css={{ px: "$12" }}
             />
             <Input.Password
@@ -145,6 +180,7 @@ export const ModalSignUp = () => {
               type="password"
               label="Password"
               placeholder="Enter your password"
+              onChange={(e) => setPassword(e.target.value)}
               css={{ px: "$12", mt: "$4" }}
             />
             <Input.Password
@@ -154,6 +190,7 @@ export const ModalSignUp = () => {
               label="Confirm Password"
               placeholder="Confirm your password"
               css={{ px: "$12", mt: "$4" }}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </Modal.Body>
           <Modal.Footer css={{ mt: "$8" }}>
