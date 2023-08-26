@@ -27,7 +27,6 @@
 .custom-image-container img {
     --border: 15px;
     --gap: 12px;
-    --color: #0072F5;
 
     width: 300px;
     aspect-ratio: 1;
@@ -55,7 +54,7 @@
             #000 calc(99% - calc(var(--border) + var(--gap))),
             #0000 calc(100% - calc(var(--border) + var(--gap))) calc(99% - var(--border)),
             #000 calc(100% - var(--border)));
-    animation: rotate 20s linear infinite, frameColorAnimation 0.4s infinite alternate, expandWidth 5s alternate;
+    animation: rotate 20s linear infinite, frameColorAnimation 1s infinite alternate, expandWidth 5s alternate;
     transition: all 1s ease-in-out;
 }
 

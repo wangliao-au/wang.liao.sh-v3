@@ -1,6 +1,9 @@
 import { Divider, Text } from "@nextui-org/react";
 import React from "react";
-import { BoxIcon } from "../icons/BoxIcon";
+import HtmlIcon from '@mui/icons-material/Html';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import CloudDoneIcon from '@mui/icons-material/CloudDone';
+import BugReportIcon from '@mui/icons-material/BugReport';
 import { Flex } from "../styles/flex";
 import styles from './photo.module.css'
 
@@ -27,13 +30,13 @@ export const Features1 = () => {
       >
         <Flex direction="column">
           <Text span css={{ color: "$primary" }}>
-            Get to know me better
+            Get to know me better&nbsp;!
           </Text>
           <Text h3>
             I enjoy seeing my uni knowledge come alive in industry projects
           </Text>
           <Text
-            span
+            h5
             css={{
               maxWidth: "400px",
               color: "$accents8",
@@ -49,7 +52,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <BoxIcon />
+            <HtmlIcon fontSize="large" />
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Frontend
@@ -71,7 +74,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <BoxIcon />
+            <TerminalIcon fontSize="large"/>
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Backend
@@ -93,7 +96,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <BoxIcon />
+            <CloudDoneIcon fontSize="large"/>
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Cloud
@@ -115,7 +118,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <BoxIcon />
+            <BugReportIcon fontSize="large"/>
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 QA

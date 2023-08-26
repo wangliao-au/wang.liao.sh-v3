@@ -13,7 +13,7 @@ export default function About(): JSX.Element {
       <Nav />
       <Box as="main">
         <Features1 />
-        <Features2 />
+        {/* <Features2 /> */}
         <Features3 />
         <Footer />
       </Box>
