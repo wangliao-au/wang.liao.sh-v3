@@ -5,24 +5,24 @@ import { Flex } from "../styles/flex";
 
 const faqData = [
   {
-    question: "What is included in the Basic plan?",
-    answer:
-      "The Basic plan includes a fully-responsive static website, 1 team member, 1 custom domain email, 30+ GB storage, and 1 production server.",
-  },
-  {
     question: "Can I upgrade from the Basic plan to the Standard plan?",
     answer:
       "Yes, you can upgrade your plan from Basic to Standard at any time. Simply contact our support team for assistance.",
   },
   {
-    question: "What storage options are available with the Standard plan?",
+    question: "Do you offer a free trial?",
     answer:
-      "The Standard plan offers 200+ GB of storage for your dynamic website content, images, and media files.",
+      "We do not offer a free trial at this time, but we do offer a 30-day money-back guarantee. If you purchase a plan and find that it isn't right for you, simply contact our support team within 30 days of purchase for a full refund.",
   },
   {
-    question: "How many production servers are provided in the Premium plan?",
+    question: "Do you offer a discount for yearly subscriptions?",
     answer:
-      "The Premium plan includes 3 production servers to ensure high availability and performance for your commercial website.",
+      "Yes, we offer a 20% discount if you choose annual billing for any plan. This discount is applicable for the lifetime of the subscription.",
+  },
+  {
+    question: "Can I cancel my subscription?",
+    answer:
+      "Yes, you can cancel your subscription at the end of any billing cycle. If you choose to cancel, your subscription will expire at the end of the billing cycle and you will not be charged for the following month.",
   },
 ];
 

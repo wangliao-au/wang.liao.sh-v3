@@ -21,7 +21,7 @@ const darkTheme = createTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextThemesProvider
-      defaultTheme="light"
+      defaultTheme="dark"
       attribute="class"
       value={{
         light: lightTheme.className,
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <NextUIProvider>
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Component {...pageProps} />
       </NextUIProvider>
     </NextThemesProvider>

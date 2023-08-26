@@ -25,7 +25,7 @@ export const Plans = () => {
           wrap={"wrap"}
           justify={"center"}
         >
-          <Card css={{ p: "$5", mw: "400px" }} isHoverable>
+          <Card css={{ p: "$5", mw: "350px" }} isHoverable>
             <Card.Header>
               <Grid.Container css={{ pl: "$6" }}>
                 <Grid xs={12}>
@@ -56,31 +56,31 @@ export const Plans = () => {
 
               <Divider />
               <Box as={"ul"}>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Team Members
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
-                    1 Fully-Responsive Static Website
+                    1 Static Website
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Custom Domain Email
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     30+ GB Storage
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Production Server
@@ -89,12 +89,12 @@ export const Plans = () => {
               </Box>
             </Card.Body>
           </Card>
-          <Card css={{ p: "$5", mw: "400px" }} isHoverable>
+          <Card css={{ p: "$5", mw: "350px" }} isHoverable>
             <Card.Header>
               <Grid.Container css={{ pl: "$6" }}>
                 <Grid xs={12}>
                   <Text h4 css={{ lineHeight: "$xs" }}>
-                    Standard
+                    Premium
                   </Text>
                 </Grid>
                 <Grid xs={12}>
@@ -120,38 +120,38 @@ export const Plans = () => {
 
               <Divider />
               <Box as={"ul"}>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     2 Team Members
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
-                    1 Fully-Responsive Dynamic Website
+                    1 Dynamic Website
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     3+ Custom Domain Email
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     200+ GB Storage
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Production Server
                   </Text>
                 </Flex>
 
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Development Server
@@ -160,12 +160,12 @@ export const Plans = () => {
               </Box>
             </Card.Body>
           </Card>
-          <Card css={{ p: "$5", mw: "400px" }} isHoverable>
+          <Card css={{ p: "$5", mw: "350px" }} isHoverable>
             <Card.Header>
               <Grid.Container css={{ pl: "$6" }}>
                 <Grid xs={12}>
                   <Text h4 css={{ lineHeight: "$xs" }}>
-                    Premium
+                    Enterprise
                   </Text>
                 </Grid>
                 <Grid xs={12}>
@@ -191,43 +191,43 @@ export const Plans = () => {
 
               <Divider />
               <Box as={"ul"}>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     3 Team Members
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
-                    1 Fully-Responsive Commercial Website
+                    1 Commercial Website
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     8+ Custom Domain Email
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1+ TB Storage
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     3 Production Servers
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     2 Development Server
                   </Text>
                 </Flex>
-                <Flex as={"li"} css={{ py: "$2", gap: "$2" }} align={"center"}>
+                <Flex css={{ py: "$2", gap: "$2" }} align={"center"}>
                   <CheckIcon />
                   <Text span css={{ color: "$accents8" }}>
                     1 Staging Server
