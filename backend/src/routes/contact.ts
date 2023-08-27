@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import nodemailer from 'nodemailer';
+import validator from 'validator';
 import Mail from '../models/mail';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -10,6 +11,13 @@ const router = express.Router();
 router.post('/send', async (req: Request, res: Response) => {
     try {
         const { email, message } = req.body;
+
+        if (!email || !message) {
+            return res.json({ status: 400, message: 'Missing email or message' });
+        }
+        if (!validator.isEmail(email)) {
+            return res.json({ status: 400, message: 'Invalid email format' });
+        }
 
         // Save email and message to the database
         const newMail = new Mail({ email, message });
