@@ -78,7 +78,7 @@ export const Hero = () => {
       openNotification(
         "topRight",
         response.message,
-        "Please try again later."
+        "Please try again."
       );
     }
     setIsLoading(false);
@@ -119,7 +119,7 @@ export const Hero = () => {
       openNotification(
         "top",
         "Failed to download CV!",
-        "Please try again later."
+        "Please try again."
       );
     }
 

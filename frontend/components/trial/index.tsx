@@ -66,7 +66,7 @@ export const Trial = () => {
       openNotification(
         "topRight",
         response.message,
-        "Please try again later."
+        "Please try again."
       );
     }
     setIsLoading(false);
