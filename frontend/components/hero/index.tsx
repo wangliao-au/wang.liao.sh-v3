@@ -16,8 +16,10 @@ import { notification } from "antd";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import confetti from "canvas-confetti";
 import Drone from "../threejs/Drone";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import Face2Icon from '@mui/icons-material/Face2';
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import Face2Icon from "@mui/icons-material/Face2";
+import apiRequest from "../../utils/api";
+import { Loading } from "@nextui-org/react";
 
 type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
@@ -27,6 +29,7 @@ export const Hero = () => {
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const [api, contextHolder] = notification.useNotification();
   const [messageText, setMessageText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -53,13 +56,32 @@ export const Hero = () => {
     setEmailModalOpen(false);
   };
 
-  const sendEmailHandler = () => {
-    openNotification(
-      "topRight",
-      "Thank you for your message!",
-      "I will get back to you as soon as possible."
-    );
-    setEmailModalOpen(false);
+  const sendEmailHandler = async () => {
+    setIsLoading(true);
+    const response = await apiRequest("POST", "/api/contact/send", {
+      email: email,
+      message: messageText,
+    });
+    if (response.status == 200) {
+      setEmailModalOpen(false);
+      openNotification(
+        "topRight",
+        "Thank you for your message!",
+        "I will get back to you as soon as possible."
+      );
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    } else {
+      openNotification(
+        "topRight",
+        response.message,
+        "Please try again later."
+      );
+    }
+    setIsLoading(false);
   };
 
   const validateEmail = (inputEmail: string) => {
@@ -196,7 +218,14 @@ export const Hero = () => {
             wrap={"wrap"}
           >
             {/* Email Contact */}
-            <Button color="gradient" onPress={downloadCVHandler} shadow ghost iconRight={<PersonAddIcon />} css={{ zIndex: 0 }}>
+            <Button
+              color="gradient"
+              onPress={downloadCVHandler}
+              shadow
+              ghost
+              iconRight={<PersonAddIcon />}
+              css={{ zIndex: 0 }}
+            >
               Download CV
             </Button>
             <Input
@@ -206,7 +235,10 @@ export const Hero = () => {
               onChange={handleEmailChange}
               labelLeft="email"
               contentRight={
-                <ContactButton onClick={openEmailModalHandler} css={{ zIndex: 0 }}>
+                <ContactButton
+                  onClick={openEmailModalHandler}
+                  css={{ zIndex: 0 }}
+                >
                   <ContactIcon />
                 </ContactButton>
               }
@@ -231,30 +263,41 @@ export const Hero = () => {
                   </div>
                 </Text>
               </Modal.Header>
-              <Modal.Body css={{ py: "$14" }}>
-                <Textarea
-                  autoFocus
-                  labelPlaceholder="Enter your message here..."
-                  status="default"
-                  rows={14}
-                  bordered
-                  onChange={(e) => setMessageText(e.target.value)}
-                />
-              </Modal.Body>
-              <Modal.Footer>
-                <Button
-                  css={{ zIndex: 0 }}
-                  auto
-                  ghost
-                  color="error"
-                  onPress={closeEmailModalHandler}
-                >
-                  Close
-                </Button>
-                <Button auto onPress={sendEmailHandler} css={{ zIndex: 0 }}>
-                  Send
-                </Button>
-              </Modal.Footer>
+              {isLoading ? (
+                <>
+                  <Modal.Body css={{ py: "$14" }}>
+                    <Loading type="gradient" />
+                  </Modal.Body>
+                  <Modal.Footer></Modal.Footer>
+                </>
+              ) : (
+                <>
+                  <Modal.Body css={{ py: "$14" }}>
+                    <Textarea
+                      autoFocus
+                      labelPlaceholder="Enter your message here..."
+                      status="default"
+                      rows={14}
+                      bordered
+                      onChange={(e) => setMessageText(e.target.value)}
+                    />
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      css={{ zIndex: 0 }}
+                      auto
+                      ghost
+                      color="error"
+                      onPress={closeEmailModalHandler}
+                    >
+                      Close
+                    </Button>
+                    <Button auto onPress={sendEmailHandler} css={{ zIndex: 0 }}>
+                      Send
+                    </Button>
+                  </Modal.Footer>
+                </>
+              )}
             </Modal>
           </Flex>
           <Flex
@@ -302,11 +345,11 @@ export const Hero = () => {
             },
           }}
         >
-        <Drone />
+          <Drone />
         </Box>
       </Flex>
       <Divider
-        // css={{ position: "absolute", inset: "0p", left: "0" }}
+      // css={{ position: "absolute", inset: "0p", left: "0" }}
       />
     </>
   );

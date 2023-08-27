@@ -4,6 +4,7 @@ import {
   FormElement,
   Input,
   Link,
+  Loading,
   Modal,
   Navbar,
   Switch,
@@ -13,7 +14,6 @@ import {
 import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import { ModalLogin, ModalSignUp } from "../modal";
 import { icons } from "./icons";
-import { AcmeLogo } from "./logo";
 import { useTheme as useNextTheme } from "next-themes";
 import { useTheme } from "@nextui-org/react";
 import { GithubIcon } from "../icons/GithubIcon";
@@ -22,7 +22,9 @@ import { notification } from "antd";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import apiRequest from "../../utils/api";
 import { Context } from "../../pages/_app";
-import Face2Icon from '@mui/icons-material/Face2';
+import Face2Icon from "@mui/icons-material/Face2";
+import Brightness6Icon from "@mui/icons-material/Brightness6";
+import confetti from "canvas-confetti";
 
 export const Nav = () => {
   const { setTheme } = useNextTheme();
@@ -32,7 +34,8 @@ export const Nav = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [messageText, setMessageText] = useState("");
   const [api, contextHolder] = notification.useNotification();
-  const {getters, setters} = useContext(Context);
+  const { getters, setters } = useContext(Context);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const tokenValidation = async () => {
@@ -50,10 +53,7 @@ export const Nav = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setters.setIsAuth(false);
-    openNotification(
-      "topRight",
-      "Successfully logged out.",
-    );
+    openNotification("topRight", "Successfully logged out.");
   };
 
   const openNotification = (
@@ -76,13 +76,32 @@ export const Nav = () => {
     setModalOpen(false);
   };
 
-  const sendHandler = () => {
-    openNotification(
-      "topRight",
-      "Thank you for your message!",
-      "I will get back to you as soon as possible."
-    );
-    setModalOpen(false);
+  const sendHandler = async () => {
+    setIsLoading(true);
+    const response = await apiRequest("POST", "/api/contact/send", {
+      email: email,
+      message: messageText,
+    });
+    if (response.status == 200) {
+      setModalOpen(false);
+      openNotification(
+        "topRight",
+        "Thank you for your message!",
+        "I will get back to you as soon as possible."
+      );
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    } else {
+      openNotification(
+        "topRight",
+        response.message,
+        "Please try again later."
+      );
+    }
+    setIsLoading(false);
   };
 
   const handleChange = (e: ChangeEvent<FormElement>) => {
@@ -108,7 +127,7 @@ export const Nav = () => {
         <Navbar.Brand>
           <Navbar.Toggle aria-label="toggle navigation" showIn="xs" />
           <Link href="/">
-          <img src="icons/wang.png" alt="logo" width="150px" height="80px" />
+            <img src="icons/wang.png" alt="logo" width="150px" height="80px" />
           </Link>
           {/* <Link href="/" color="text">
             <Text b color="inherit" hideIn="xs">
@@ -238,32 +257,54 @@ export const Nav = () => {
                   </div>
                 </Text>
               </Modal.Header>
-              <Modal.Body css={{ pt: "$8", pb: "$14" }}>
-                <Input
-                  autoFocus
-                  css={{ pb: "$12" }}
-                  bordered
-                  clearable
-                  placeholder="Enter your email"
-                  onChange={handleChange}
-                  labelLeft="email"
-                />
-                <Textarea
-                  labelPlaceholder="Enter your message here..."
-                  status="default"
-                  rows={14}
-                  bordered
-                  onChange={(e) => setMessageText(e.target.value)}
-                />
-              </Modal.Body>
-              <Modal.Footer>
-                <Button auto ghost color="error" onPress={closeModalHandler} css={{ zIndex: 0 }}>
-                  Close
-                </Button>
-                <Button auto color="primary" onPress={sendHandler} css={{ zIndex: 0 }}>
-                  Send
-                </Button>
-              </Modal.Footer>
+              {isLoading ? (
+                <>
+                  <Modal.Body css={{ py: "$14" }}>
+                    <Loading type="gradient" />
+                  </Modal.Body>
+                  <Modal.Footer></Modal.Footer>
+                </>
+              ) : (
+                <>
+                  <Modal.Body css={{ pt: "$8", pb: "$14" }}>
+                    <Input
+                      autoFocus
+                      css={{ pb: "$12" }}
+                      bordered
+                      clearable
+                      placeholder="Enter your email"
+                      onChange={handleChange}
+                      labelLeft="email"
+                    />
+                    <Textarea
+                      labelPlaceholder="Enter your message here..."
+                      status="default"
+                      rows={14}
+                      bordered
+                      onChange={(e) => setMessageText(e.target.value)}
+                    />
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      auto
+                      ghost
+                      color="error"
+                      onPress={closeModalHandler}
+                      css={{ zIndex: 0 }}
+                    >
+                      Close
+                    </Button>
+                    <Button
+                      auto
+                      color="primary"
+                      onPress={sendHandler}
+                      css={{ zIndex: 0 }}
+                    >
+                      Send
+                    </Button>
+                  </Modal.Footer>
+                </>
+              )}
             </Modal>
             <Navbar.Link href="/support">Support</Navbar.Link>
           </Navbar.Content>
@@ -277,7 +318,11 @@ export const Nav = () => {
                 css={{
                   minWidth: "100%",
                 }}
-                href={index === 0 ? "https://www.linkedin.com/in/wangliao-au/" : `/${item.toLowerCase()}`}
+                href={
+                  index === 0
+                    ? "https://www.linkedin.com/in/wangliao-au/"
+                    : `/${item.toLowerCase()}`
+                }
                 target={index === 0 ? "_blank" : ""}
               >
                 {item}
@@ -317,6 +362,9 @@ export const Nav = () => {
             }}
           >
             <Switch
+              icon={<Brightness6Icon />}
+              shadow
+              color="primary"
               checked={isDark}
               onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
             />
@@ -361,6 +409,9 @@ export const Nav = () => {
           </Navbar.Item>
           <Navbar.Item hideIn={"xs"}>
             <Switch
+              icon={<Brightness6Icon />}
+              shadow
+              color="primary"
               checked={isDark}
               onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
             />

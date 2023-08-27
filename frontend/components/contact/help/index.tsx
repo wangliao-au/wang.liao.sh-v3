@@ -4,6 +4,7 @@ import {
   Checkbox,
   Divider,
   Input,
+  Loading,
   Text,
   Textarea,
 } from "@nextui-org/react";
@@ -13,13 +14,16 @@ import SendIcon from "@mui/icons-material/Send";
 import confetti from "canvas-confetti";
 import { notification } from "antd";
 import type { NotificationPlacement } from "antd/es/notification/interface";
-import Face2Icon from '@mui/icons-material/Face2';
+import Face2Icon from "@mui/icons-material/Face2";
+import apiRequest from "../../../utils/api";
 
 export const Help = () => {
   const [email, setEmail] = useState("");
   const [request, setRequest] = useState("");
   const [api, contextHolder] = notification.useNotification();
-    const openNotification = (
+  const [isLoading, setIsLoading] = useState(false);
+
+  const openNotification = (
     placement: NotificationPlacement,
     msg: string,
     description?: string
@@ -32,14 +36,33 @@ export const Help = () => {
     });
   };
 
-  const sendRequestHandler = () => {
-    openNotification("topRight", "Your request has been sent!", "I will get back to you as soon as possible.");
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
+  const sendRequestHandler = async () => {
+    setIsLoading(true);
+    const response = await apiRequest("POST", "/api/contact/send", {
+      email: email,
+      message: request,
     });
+    if (response.status == 200) {
+      openNotification(
+        "topRight",
+        "Your request has been sent!",
+        "I will get back to you as soon as possible."
+      );
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    } else {
+      openNotification(
+        "topRight",
+        response.message,
+        "Please try again later."
+      );
+    }
+    setIsLoading(false);
   };
+
   return (
     <>
       {contextHolder}
@@ -63,49 +86,60 @@ export const Help = () => {
         }}
       >
         <Flex>
-          <Card css={{ width: "350px", "@sm": { width: "400px" } }}>
-            <Card.Body css={{ pt: "$14", pb: "$8", px: "$16" }}>
-              <Input
-                css={{ pb: "$14" }}
-                // bordered
-                clearable
-                placeholder="Enter your email"
-                onChange={(e) => setEmail(e.target.value)}
-                labelLeft="email"
-              />
-              <Textarea
-                labelPlaceholder="Enter your request here"
-                status="default"
-                rows={14}
-                bordered
-                onChange={(e) => setRequest(e.target.value)}
-              />
-              <Checkbox
-                css={{ pt: "$6", alignSelf: "end" }}
-                size="sm"
-                color="primary"
-                labelColor="primary"
-                isRounded
-              >
-                urgent
-              </Checkbox>
-            </Card.Body>
-            <Card.Footer
-              css={{ pb: "$12", px: "$16" }}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <Button
-                css={{ zIndex: 0 }}
-                auto
-                color="gradient"
-                shadow
-                ghost
-                iconRight={<SendIcon />}
-                onClick={sendRequestHandler}
-              >
-                Send Request
-              </Button>
-            </Card.Footer>
+          <Card css={{ width: "350px", "@sm": { width: "400px" }, minHeight: "400px" }}>
+            {isLoading ? (
+              <>
+                <Card.Body css={{ py: "$14", px: "$16" }} style={{ display: "flex", justifyContent: "center" }}>
+                  <Loading type="gradient" />
+                </Card.Body>
+                <Card.Footer></Card.Footer>
+              </>
+            ) : (
+              <>
+                <Card.Body css={{ pt: "$14", pb: "$8", px: "$16" }}>
+                  <Input
+                    css={{ pb: "$14" }}
+                    // bordered
+                    clearable
+                    placeholder="Enter your email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    labelLeft="email"
+                  />
+                  <Textarea
+                    labelPlaceholder="Enter your request here"
+                    status="default"
+                    rows={14}
+                    bordered
+                    onChange={(e) => setRequest(e.target.value)}
+                  />
+                  <Checkbox
+                    css={{ pt: "$6", alignSelf: "end" }}
+                    size="sm"
+                    color="primary"
+                    labelColor="primary"
+                    isRounded
+                  >
+                    urgent
+                  </Checkbox>
+                </Card.Body>
+                <Card.Footer
+                  css={{ pb: "$12", px: "$16" }}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Button
+                    css={{ zIndex: 0 }}
+                    auto
+                    color="gradient"
+                    shadow
+                    ghost
+                    iconRight={<SendIcon />}
+                    onClick={sendRequestHandler}
+                  >
+                    Send Request
+                  </Button>
+                </Card.Footer>
+              </>
+            )}
           </Card>
         </Flex>
         <Flex
