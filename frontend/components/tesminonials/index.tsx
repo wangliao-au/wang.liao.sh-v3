@@ -1,9 +1,21 @@
-import AppsIcon from '@mui/icons-material/Apps';
+import AppsIcon from "@mui/icons-material/Apps";
 import { Button, Divider, Text } from "@nextui-org/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Flex } from "../styles/flex";
 
 export const Testimonials = () => {
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileWidth(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Flex
@@ -13,8 +25,9 @@ export const Testimonials = () => {
           justifyContent: "center",
           alignItems: "center",
           px: "$6",
-          flexDirection: "column-reverse",
+          mt: "$20",
           "@sm": {
+            mt: "$0",
             justifyContent: "space-around",
             px: "$32",
             flexDirection: "row-reverse",
@@ -24,145 +37,6 @@ export const Testimonials = () => {
           },
         }}
       >
-        {/* <Flex direction="column" css={{gap: '1.5rem'}}>
-               <Card>
-                  <Card.Body css={{background: '$accents2'}}>
-                     <Flex
-                        css={{
-                           py: '$10',
-                           gap: '$5',
-                        }}
-                     >
-                        <QuotesIcon />
-                        <Flex direction={'column'} css={{gap: '0.5rem'}}>
-                           <Text
-                              span
-                              css={{
-                                 maxWidth: '400px',
-                                 color: '$accents8',
-                              }}
-                           >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl,
-                           </Text>
-                           <Text
-                              span
-                              weight={'bold'}
-                              css={{
-                                 maxWidth: '400px',
-                                 display: 'contents',
-                                 color: '$accents9',
-                              }}
-                           >
-                              Jennifer Ford{' '}
-                           </Text>
-                           <Text
-                              span
-                              css={{
-                                 display: 'contents',
-                                 color: '$accents8',
-                              }}
-                           >
-                              - CEO at Company
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-
-               <Card>
-                  <Card.Body css={{background: '$accents2'}}>
-                     <Flex
-                        css={{
-                           py: '$10',
-                           gap: '$5',
-                        }}
-                     >
-                        <QuotesIcon />
-                        <Flex direction={'column'} css={{gap: '0.5rem'}}>
-                           <Text
-                              span
-                              css={{
-                                 maxWidth: '400px',
-                                 color: '$accents8',
-                              }}
-                           >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl,
-                           </Text>
-                           <Text
-                              span
-                              weight={'bold'}
-                              css={{
-                                 maxWidth: '400px',
-                                 display: 'contents',
-                                 color: '$accents9',
-                              }}
-                           >
-                              Jennifer Ford{' '}
-                           </Text>
-                           <Text
-                              span
-                              css={{
-                                 display: 'contents',
-                                 color: '$accents8',
-                              }}
-                           >
-                              - CEO at Company
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-
-               <Card>
-                  <Card.Body css={{background: '$accents2'}}>
-                     <Flex
-                        css={{
-                           py: '$10',
-                           gap: '$5',
-                        }}
-                     >
-                        <QuotesIcon />
-                        <Flex direction={'column'} css={{gap: '0.5rem'}}>
-                           <Text
-                              span
-                              css={{
-                                 maxWidth: '400px',
-                                 color: '$accents8',
-                              }}
-                           >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl,
-                           </Text>
-                           <Text
-                              span
-                              weight={'bold'}
-                              css={{
-                                 maxWidth: '400px',
-                                 display: 'contents',
-                                 color: '$accents9',
-                              }}
-                           >
-                              Jennifer Ford{' '}
-                           </Text>
-                           <Text
-                              span
-                              css={{
-                                 display: 'contents',
-                                 color: '$accents8',
-                              }}
-                           >
-                              - CEO at Company
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-            </Flex> */}
         <Flex
           align={"start"}
           direction={"column"}

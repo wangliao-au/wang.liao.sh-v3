@@ -337,7 +337,8 @@ export const Hero = () => {
             </Flex>
           </Flex>
         </Box>
-        <Box
+        <Drone />
+        {/* <Box
           css={{
             "& img": {
               width: "775px",
@@ -345,8 +346,7 @@ export const Hero = () => {
             },
           }}
         >
-          <Drone />
-        </Box>
+        </Box> */}
       </Flex>
       <Divider
       // css={{ position: "absolute", inset: "0p", left: "0" }}
