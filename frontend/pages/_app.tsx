@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Context.Provider value={{ getters, setters }}>
       <NextThemesProvider
-        defaultTheme="dark"
+        defaultTheme="system"
         attribute="class"
         value={{
           light: lightTheme.className,

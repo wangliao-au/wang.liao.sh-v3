@@ -43,7 +43,7 @@ export const Hero = () => {
 
   const openEmailModalHandler = () => {
     if (!isValidEmail) {
-      openNotification("topRight", "Please enter a valid email address.");
+      openNotification("topRight", "Please enter a valid email.");
       return;
     }
     setEmailModalOpen(true);

@@ -246,7 +246,7 @@ export const Nav = () => {
                   css={{ pb: "$12" }}
                   bordered
                   clearable
-                  placeholder="Enter your email address"
+                  placeholder="Enter your email"
                   onChange={handleChange}
                   labelLeft="email"
                 />

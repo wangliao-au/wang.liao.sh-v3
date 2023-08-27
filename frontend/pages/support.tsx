@@ -1,4 +1,5 @@
-import { Faq } from "../components/faq";
+import { Faq } from "../components/support/faq";
+import { Help } from "../components/support/help";
 import { Footer } from "../components/footer";
 import { Nav } from "../components/navbar/navbar";
 import { Plans } from "../components/plans";
@@ -9,8 +10,8 @@ export default function Support(): JSX.Element {
     <>
       <Nav />
       <Box as="main">
-        <Plans />
-        <Faq />
+        <Help />
+        <Faq/>
         <Footer />
       </Box>
     </>

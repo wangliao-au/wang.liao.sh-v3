@@ -14,7 +14,8 @@ export const Features1 = () => {
         direction={"column"}
         css={{
           gap: "1rem",
-          pt: "$20",
+          pt: "$16",
+          pb: "$2",
           justifyContent: "center",
           alignItems: "center",
           px: "$6",
@@ -121,7 +122,7 @@ export const Features1 = () => {
             <BugReportIcon fontSize="large"/>
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
-                QA
+                Quality Assurance
               </Text>
               <Text
                 span
