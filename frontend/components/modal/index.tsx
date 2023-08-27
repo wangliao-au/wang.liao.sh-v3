@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Modal, Input, Button, Text, Navbar } from "@nextui-org/react";
+import { Modal, Input, Button, Text, Navbar, Loading } from "@nextui-org/react";
 import { notification } from "antd";
 import type { NotificationPlacement } from "antd/es/notification/interface";
 import apiRequest from "../../utils/api";
 import { Context } from "../../pages/_app";
-import Face2Icon from '@mui/icons-material/Face2';
+import Face2Icon from "@mui/icons-material/Face2";
 
 type ModalProps = {
   isSupport?: boolean;
@@ -17,6 +17,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { getters, setters } = useContext(Context);
+  const [isLoading, setIsLoading] = useState(false);
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -27,7 +28,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
       duration: 3.5,
       message: msg,
       description: description,
-      icon: <Face2Icon/>,
+      icon: <Face2Icon />,
     });
   };
 
@@ -36,6 +37,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
   };
 
   const sendHandler = async () => {
+    setIsLoading(true);
     const response = await apiRequest("POST", "/api/auth/login", {
       email: email,
       password: password,
@@ -48,6 +50,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
     openNotification("topRight", response.message);
     setEmail("");
     setPassword("");
+    setIsLoading(false);
   };
 
   return (
@@ -77,35 +80,49 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
               </Text>
             </Text>
           </Modal.Header>
-          <Modal.Body css={{ mt: "$6" }}>
-            <Input
-              bordered
-              clearable
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              css={{ px: "$12" }}
-              onChange={(e) => setEmail(e.target.value)}
-              autoFocus
-            />
-            <Input.Password
-              bordered
-              clearable
-              type="password"
-              label="Password"
-              placeholder="Enter your password"
-              css={{ px: "$12", mt: "$4" }}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Modal.Body>
-          <Modal.Footer css={{ mt: "$8" }}>
-            <Button auto ghost color="error" onClick={closeHandler}>
-              Close
-            </Button>
-            <Button auto onClick={sendHandler}>
-              Sign in
-            </Button>
-          </Modal.Footer>
+          {isLoading ? (
+            <>
+              <Modal.Body
+                css={{ py: "$14", px: "$16" }}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Loading type="gradient" />
+              </Modal.Body>
+              <Modal.Footer></Modal.Footer>
+            </>
+          ) : (
+            <>
+              <Modal.Body css={{ mt: "$6" }}>
+                <Input
+                  bordered
+                  clearable
+                  type="email"
+                  label="Email"
+                  placeholder="Enter your email"
+                  css={{ px: "$12" }}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoFocus
+                />
+                <Input.Password
+                  bordered
+                  clearable
+                  type="password"
+                  label="Password"
+                  placeholder="Enter your password"
+                  css={{ px: "$12", mt: "$4" }}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Modal.Body>
+              <Modal.Footer css={{ mt: "$8" }}>
+                <Button auto ghost color="error" onClick={closeHandler}>
+                  Close
+                </Button>
+                <Button auto onClick={sendHandler}>
+                  Sign in
+                </Button>
+              </Modal.Footer>
+            </>
+          )}
         </Modal>
       </div>
     </>
@@ -119,6 +136,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const openNotification = (
     placement: NotificationPlacement,
@@ -138,6 +156,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
   };
 
   const sendHandler = async () => {
+    setIsLoading(true);
     const response = await apiRequest("POST", "/api/auth/signup", {
       email: email,
       password: password,
@@ -148,6 +167,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
     setEmail("");
     setPassword("");
     setConfirmPassword("");
+    setIsLoading(false);
   };
 
   return (
@@ -155,7 +175,13 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
       {contextHolder}
       <div>
         {isSupport ? (
-          <Button ghost shadow onClick={handler} color="gradient" css={{ zIndex: 0 }}>
+          <Button
+            ghost
+            shadow
+            onClick={handler}
+            color="gradient"
+            css={{ zIndex: 0 }}
+          >
             Sign Up
           </Button>
         ) : (
@@ -177,44 +203,58 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
               </Text>
             </Text>
           </Modal.Header>
-          <Modal.Body css={{ mt: "$6" }}>
-            <Input
-              autoFocus
-              bordered
-              clearable
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              onChange={(e) => setEmail(e.target.value)}
-              css={{ px: "$12" }}
-            />
-            <Input.Password
-              bordered
-              clearable
-              type="password"
-              label="Password"
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              css={{ px: "$12", mt: "$4" }}
-            />
-            <Input.Password
-              bordered
-              clearable
-              type="confirmPassword"
-              label="Confirm Password"
-              placeholder="Confirm your password"
-              css={{ px: "$12", mt: "$4" }}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </Modal.Body>
-          <Modal.Footer css={{ mt: "$8" }}>
-            <Button auto ghost color="error" onClick={closeHandler}>
-              Close
-            </Button>
-            <Button auto onClick={sendHandler}>
-              Sign up
-            </Button>
-          </Modal.Footer>
+          {isLoading ? (
+            <>
+              <Modal.Body
+                css={{ py: "$14", px: "$16" }}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Loading type="gradient" />
+              </Modal.Body>
+              <Modal.Footer></Modal.Footer>
+            </>
+          ) : (
+            <>
+              <Modal.Body css={{ mt: "$6" }}>
+                <Input
+                  autoFocus
+                  bordered
+                  clearable
+                  type="email"
+                  label="Email"
+                  placeholder="Enter your email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  css={{ px: "$12" }}
+                />
+                <Input.Password
+                  bordered
+                  clearable
+                  type="password"
+                  label="Password"
+                  placeholder="Enter your password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  css={{ px: "$12", mt: "$4" }}
+                />
+                <Input.Password
+                  bordered
+                  clearable
+                  type="confirmPassword"
+                  label="Confirm Password"
+                  placeholder="Confirm your password"
+                  css={{ px: "$12", mt: "$4" }}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </Modal.Body>
+              <Modal.Footer css={{ mt: "$8" }}>
+                <Button auto ghost color="error" onClick={closeHandler}>
+                  Close
+                </Button>
+                <Button auto onClick={sendHandler}>
+                  Sign up
+                </Button>
+              </Modal.Footer>
+            </>
+          )}
         </Modal>
       </div>
     </>
