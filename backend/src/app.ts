@@ -22,7 +22,7 @@ db.once('open', () => {
 const app = express();
 
 app.use(cors({ // Allow requests from http://localhost:3001
-    origin: 'http://localhost:3001',
+    origin: '*',
     credentials: true  // This allows cookies to be sent across origins
 }));
 

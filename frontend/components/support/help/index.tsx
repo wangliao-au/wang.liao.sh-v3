@@ -33,7 +33,6 @@ export const Help = () => {
   };
 
   const sendRequestHandler = () => {
-    console.log(email, request);
     openNotification("topRight", "Your request has been sent!", "I will get back to you as soon as possible.");
     confetti({
       particleCount: 100,

@@ -33,16 +33,15 @@ export const Nav = () => {
   const [messageText, setMessageText] = useState("");
   const [api, contextHolder] = notification.useNotification();
   const {getters, setters} = useContext(Context);
-  const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
     const tokenValidation = async () => {
       const response = await apiRequest("GET", "/api/auth/tokenValidation");
       if (response.status === 200) {
-        setIsVerified(true);
+        setters.setIsVerified(true);
         openNotification("topRight", "Welcome back!", response.email);
       } else {
-        setIsVerified(false);
+        setters.setIsVerified(false);
       }
     };
     tokenValidation();
@@ -140,7 +139,6 @@ export const Nav = () => {
               </Navbar.Item>
               <Dropdown.Menu
                 onAction={(key) => {
-                  console.log(key);
                   switch (key) {
                     case "event_star":
                       window.open("https://eventstar-app.liao.sh/");
@@ -325,7 +323,7 @@ export const Nav = () => {
           </Navbar.CollapseItem>
         </Navbar.Collapse>
         <Navbar.Content>
-          {isVerified ? (
+          {getters.isVerified ? (
             <>
               <Button auto flat onClick={handleLogout}>
                 Log out

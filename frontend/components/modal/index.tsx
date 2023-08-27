@@ -6,7 +6,11 @@ import apiRequest from "../../utils/api";
 import { Context } from "../../pages/_app";
 import Face2Icon from '@mui/icons-material/Face2';
 
-export const ModalLogin = () => {
+type ModalProps = {
+  isSupport?: boolean;
+};
+
+export const ModalLogin = ({ isSupport }: ModalProps) => {
   const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const [api, contextHolder] = notification.useNotification();
@@ -50,9 +54,15 @@ export const ModalLogin = () => {
     <>
       {contextHolder}
       <div>
-        <Button auto shadow onClick={handler} color="gradient">
-          Login
-        </Button>
+        {isSupport ? (
+          <Button shadow onClick={handler} color="gradient">
+            Login
+          </Button>
+        ) : (
+          <Button auto shadow onClick={handler} color="gradient">
+            Login
+          </Button>
+        )}
         <Modal
           closeButton
           blur
@@ -102,7 +112,7 @@ export const ModalLogin = () => {
   );
 };
 
-export const ModalSignUp = () => {
+export const ModalSignUp = ({ isSupport }: ModalProps) => {
   const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const [api, contextHolder] = notification.useNotification();
@@ -144,9 +154,15 @@ export const ModalSignUp = () => {
     <>
       {contextHolder}
       <div>
-        <Button auto ghost shadow onClick={handler} color="gradient">
-          Sign Up
-        </Button>
+        {isSupport ? (
+          <Button ghost shadow onClick={handler} color="gradient">
+            Sign Up
+          </Button>
+        ) : (
+          <Button auto ghost shadow onClick={handler} color="gradient">
+            Sign Up
+          </Button>
+        )}
         <Modal
           closeButton
           blur

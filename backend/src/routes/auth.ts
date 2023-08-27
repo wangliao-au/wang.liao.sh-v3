@@ -83,7 +83,6 @@ function authenticate(req: any, res: any, next: any) {
     jwt.verify(token, secret, (err: any, user: any) => {
         if (err) return res.sendStatus(403);
         req.user = user;
-        console.log('User authenticated via token', user);
         next();
     });
 }

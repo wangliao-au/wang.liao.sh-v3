@@ -13,7 +13,6 @@ export const Trusted = () => {
       setBrightIcon(newIcon);
     }, [theme]);
 
-   console.log(theme, brightIcon);
   return (
     <>
       <Flex

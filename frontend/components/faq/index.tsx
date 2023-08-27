@@ -42,7 +42,7 @@ export const Faq = () => {
           <Text span css={{ color: "$primary" }}>
             FAQ
           </Text>
-          <Text h2>You Have Questions? We Have Answers!</Text>
+          <Text h2 css={{ textAlign: "center", "@sm": { textAlign: "start" } }}>You Have Questions? We Have Answers!</Text>
           <Text
             span
             css={{
