@@ -257,10 +257,10 @@ export const Nav = () => {
                 />
               </Modal.Body>
               <Modal.Footer>
-                <Button auto ghost color="error" onPress={closeModalHandler}>
+                <Button auto ghost color="error" onPress={closeModalHandler} css={{ zIndex: 0 }}>
                   Close
                 </Button>
-                <Button auto color="primary" onPress={sendHandler}>
+                <Button auto color="primary" onPress={sendHandler} css={{ zIndex: 0 }}>
                   Send
                 </Button>
               </Modal.Footer>
@@ -269,7 +269,7 @@ export const Nav = () => {
           </Navbar.Content>
         </Navbar.Brand>
 
-        <Navbar.Collapse>
+        <Navbar.Collapse css={{ zIndex: 50 }}>
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem key={item} isActive={index === 3}>
               <Link
@@ -325,7 +325,7 @@ export const Nav = () => {
         <Navbar.Content>
           {getters.isVerified ? (
             <>
-              <Button auto flat onClick={handleLogout}>
+              <Button auto flat onClick={handleLogout} css={{ zIndex: 0 }}>
                 Log out
               </Button>
             </>

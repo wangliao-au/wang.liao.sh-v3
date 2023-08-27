@@ -196,7 +196,7 @@ export const Hero = () => {
             wrap={"wrap"}
           >
             {/* Email Contact */}
-            <Button color="gradient" onPress={downloadCVHandler} shadow ghost iconRight={<PersonAddIcon />}>
+            <Button color="gradient" onPress={downloadCVHandler} shadow ghost iconRight={<PersonAddIcon />} css={{ zIndex: 0 }}>
               Download CV
             </Button>
             <Input
@@ -206,7 +206,7 @@ export const Hero = () => {
               onChange={handleEmailChange}
               labelLeft="email"
               contentRight={
-                <ContactButton onClick={openEmailModalHandler}>
+                <ContactButton onClick={openEmailModalHandler} css={{ zIndex: 0 }}>
                   <ContactIcon />
                 </ContactButton>
               }
@@ -243,6 +243,7 @@ export const Hero = () => {
               </Modal.Body>
               <Modal.Footer>
                 <Button
+                  css={{ zIndex: 0 }}
                   auto
                   ghost
                   color="error"
@@ -250,7 +251,7 @@ export const Hero = () => {
                 >
                   Close
                 </Button>
-                <Button auto onPress={sendEmailHandler} >
+                <Button auto onPress={sendEmailHandler} css={{ zIndex: 0 }}>
                   Send
                 </Button>
               </Modal.Footer>

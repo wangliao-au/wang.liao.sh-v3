@@ -18,7 +18,9 @@ export const Plans = () => {
           <Text span css={{ color: "$primary" }}>
             Pricing
           </Text>
-          <Text h2>Choose the plan that fits you</Text>
+          <Text h2 css={{ textAlign: "center", "@sm": { textAlign: "start" } }}>
+            Choose the plan that fits you.
+          </Text>
         </Flex>
         <Flex
           css={{ gap: "2rem", width: "100%" }}
@@ -49,7 +51,7 @@ export const Plans = () => {
                 color="gradient"
                 shadow
                 rounded
-                css={{ mt: "$7", mb: "$12" }}
+                css={{ mt: "$7", mb: "$12", zIndex: 0 }}
               >
                 Get Started
               </Button>
@@ -113,7 +115,7 @@ export const Plans = () => {
                 color="gradient"
                 shadow
                 rounded
-                css={{ mt: "$7", mb: "$12" }}
+                css={{ mt: "$7", mb: "$12", zIndex: 0 }}
               >
                 Get Started
               </Button>
@@ -184,7 +186,7 @@ export const Plans = () => {
                 color="gradient"
                 shadow
                 rounded
-                css={{ mt: "$7", mb: "$12" }}
+                css={{ mt: "$7", mb: "$12", zIndex: 0 }}
               >
                 Get Started
               </Button>

@@ -46,7 +46,7 @@ export const Help = () => {
       <Flex
         direction={"column"}
         css={{
-          py: "$18",
+          py: "$12",
           gap: "4rem",
           justifyContent: "center",
           alignItems: "center",
@@ -63,7 +63,7 @@ export const Help = () => {
         }}
       >
         <Flex>
-        <Card css={{ width: "350px", "@sm": { width: "400px" } }}>
+          <Card css={{ width: "350px", "@sm": { width: "400px" } }}>
             <Card.Body css={{ pt: "$14", pb: "$8", px: "$16" }}>
               <Input
                 css={{ pb: "$14" }}
@@ -95,13 +95,13 @@ export const Help = () => {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Button
+                css={{ zIndex: 0 }}
                 auto
                 color="gradient"
                 shadow
                 ghost
                 iconRight={<SendIcon />}
                 onClick={sendRequestHandler}
-                css={{ zIndex: 0 }}
               >
                 Send Request
               </Button>
@@ -119,10 +119,10 @@ export const Help = () => {
           }}
         >
           <Text span css={{ color: "$primary" }}>
-            Support
+            Contact
           </Text>
           <Text h2 css={{ textAlign: "center", "@sm": { textAlign: "start" } }}>
-            Thank you for choosing our Technical Services!
+            Thank you for reaching out!
           </Text>
           <Text
             h5

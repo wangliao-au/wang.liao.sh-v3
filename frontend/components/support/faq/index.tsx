@@ -44,7 +44,7 @@ export const Faq = () => {
           pb: "$20",
           gap: "$18",
           px: "$6",
-          mt: "$20",
+          mt: "$18",
         }}
         direction={"column"}
       >

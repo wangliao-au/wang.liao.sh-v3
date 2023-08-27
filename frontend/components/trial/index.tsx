@@ -80,6 +80,7 @@ export const Trial = () => {
         </Text>
 
         <Button
+          css={{ zIndex: 0 }}
           auto
           onClick={openModalHandler}
           color="gradient"
@@ -121,10 +122,10 @@ export const Trial = () => {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button auto ghost color="error" onPress={closeModalHandler}>
+            <Button auto ghost color="error" onPress={closeModalHandler} css={{ zIndex: 0 }}>
               Close
             </Button>
-            <Button auto color="primary" onPress={sendHandler}>
+            <Button auto color="primary" onPress={sendHandler} css={{ zIndex: 0 }}>
               Send
             </Button>
           </Modal.Footer>

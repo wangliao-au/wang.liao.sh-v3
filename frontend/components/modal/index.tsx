@@ -55,7 +55,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
       {contextHolder}
       <div>
         {isSupport ? (
-          <Button shadow onClick={handler} color="gradient">
+          <Button shadow onClick={handler} color="gradient" css={{ zIndex: 0 }}>
             Login
           </Button>
         ) : (
@@ -155,7 +155,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
       {contextHolder}
       <div>
         {isSupport ? (
-          <Button ghost shadow onClick={handler} color="gradient">
+          <Button ghost shadow onClick={handler} color="gradient" css={{ zIndex: 0 }}>
             Sign Up
           </Button>
         ) : (

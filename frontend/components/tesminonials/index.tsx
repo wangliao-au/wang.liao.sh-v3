@@ -200,7 +200,7 @@ export const Testimonials = () => {
             color="gradient"
             shadow
             onClick={() => window.open("https://eventstar-app.liao.sh/")}
-            css={{ mt: "$8" }}
+            css={{ mt: "$8", zIndex: 0 }}
             ghost
             iconRight={<AppsIcon />}
           >
