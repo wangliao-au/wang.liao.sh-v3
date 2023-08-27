@@ -1,10 +1,11 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
 import validator from 'validator';
 import User from '../models/user';
+import dotenv from 'dotenv';
 dotenv.config();
+
 const secret: string = process.env.SESSION_SECRET || '';
 
 const router = express.Router();
@@ -15,12 +16,10 @@ router.post('/signup', async (req, res) => {
     if (!email || !password) {
         return res.status(400).json({ message: 'Missing email or password' });
     }
-
     // Validate email format
     if (!validator.isEmail(email)) {
         return res.status(400).json({ message: 'Invalid email format' });
     }
-
     if (password !== req.body.confirmPassword) {
         return res.status(400).json({ message: 'Passwords do not match' });
     }

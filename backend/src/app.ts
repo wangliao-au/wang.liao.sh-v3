@@ -1,8 +1,10 @@
 import express from 'express';
 import session from 'express-session';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import mongoose, { ConnectOptions } from 'mongoose';
 import authRoutes from './routes/auth';
+import contactRoutes from './routes/contact';
 import dotenv from 'dotenv';
 dotenv.config();
 const secret: string = process.env.SESSION_SECRET || '';
@@ -51,8 +53,11 @@ app.use(session({
 }));
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.json()); // for parsing application/json
+app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/contact', contactRoutes);
+
 
 const PORT = 3206;
 app.listen(PORT, () => {
