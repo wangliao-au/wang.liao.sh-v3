@@ -1,1 +1,1 @@
-export const url = `http://ec2-54-252-201-159.ap-southeast-2.compute.amazonaws.com:3206/` // dev
+export const url = `https://eventstar.liao.sh/3026` // prod
