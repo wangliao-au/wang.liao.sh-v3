@@ -114,7 +114,7 @@ export const Nav = () => {
       {contextHolder}
       <Navbar
         variant="sticky"
-        shouldHideOnScroll
+        // shouldHideOnScroll
         isBordered
         // css={{
         //   overflow: "hidden",
@@ -320,7 +320,7 @@ export const Nav = () => {
                 }}
                 href={
                   index === 0
-                    ? "https://www.linkedin.com/in/wangliao-au/"
+                    ? "https://github.com/wangliao-au"
                     : `/${item.toLowerCase()}`
                 }
                 target={index === 0 ? "_blank" : ""}
