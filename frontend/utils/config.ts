@@ -1,1 +1,1 @@
-export const url = `https://eventstar.liao.sh/3206` // prod
+export const url = `https://wang-backend.liao.sh/` // prod
