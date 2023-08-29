@@ -29,9 +29,12 @@ export const Trusted = () => {
       setBrightIcon(newIcon);
       return;
     }
+  }, []);
+
+  useEffect (() => {
     const newIcon = theme === "dark" ? "bright-dark.png" : "bright-light.png";    
     setBrightIcon(newIcon);
-  }, []);
+  }, [theme]);
 
   return (
     <>
