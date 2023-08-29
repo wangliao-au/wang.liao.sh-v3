@@ -20,9 +20,18 @@ export const Trusted = () => {
   }, []);
 
   useEffect(() => {
-    const newIcon = theme === "light" ? "bright-light.png" : "bright-dark.png";
+    if (theme === "system") {
+      const newIcon =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "bright-dark.png"
+          : "bright-light.png";
+      setBrightIcon(newIcon);
+      return;
+    }
+    const newIcon = theme === "dark" ? "bright-dark.png" : "bright-light.png";    
     setBrightIcon(newIcon);
-  }, [theme]);
+  }, []);
 
   return (
     <>
