@@ -66,7 +66,7 @@ export const Testimonials = () => {
           </Flex>
           <Text span css={{ color: "$accents8", maxW: "550px", pb: "$8" }}>
             EventStar is a fully responsive, cloud-based B2C event management
-            platform that empower organizations to create, manage, sell tickets,
+            platform that empowers organizations to create, manage, sell tickets,
             and track statistics. It also provides a seamless experience for
             users to discover and purchase tickets to events.
           </Text>
