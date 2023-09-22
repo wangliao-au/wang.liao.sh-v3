@@ -97,7 +97,7 @@ export const Hero = () => {
 
   const downloadCVHandler = async () => {
     // Replace with the actual URL of your CV file
-    const cvFileUrl = "https://wang.liao.sh/resume/wang_liao_23m8.pdf";
+    const cvFileUrl = "https://wang.liao.sh/resume/WangLiao_UNSW_23m9.pdf";
 
     try {
       const response = await fetch(cvFileUrl);
@@ -106,7 +106,7 @@ export const Hero = () => {
 
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "wang_liao_cv_23m8.pdf"; // Set the desired filename
+      anchor.download = "WangLiao_UNSW_23m9.pdf"; // Set the desired filename
       anchor.style.display = "none";
 
       document.body.appendChild(anchor);
