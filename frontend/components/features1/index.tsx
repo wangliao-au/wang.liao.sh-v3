@@ -34,7 +34,7 @@ export const Features1 = () => {
             Get to know me better&nbsp;!
           </Text>
           <Text h3>
-            I enjoy seeing my uni knowledge come alive in industry projects
+            I enjoy seeing my learnings come alive in industry projects
           </Text>
           <Text
             h5
@@ -138,7 +138,7 @@ export const Features1 = () => {
         </Flex>
         <Flex align={"center"}>
         <div className={styles['custom-image-container']}>
-      <img src="/wangliao.jpeg" alt="wangliao" width="300px" />
+      <img src="/wangliao.png" alt="wangliao" width="300px" />
     </div>
         </Flex>
       </Flex>

@@ -75,11 +75,7 @@ export const Hero = () => {
         origin: { y: 0.6 },
       });
     } else {
-      openNotification(
-        "topRight",
-        response.message,
-        "Please try again."
-      );
+      openNotification("topRight", response.message, "Please try again.");
     }
     setIsLoading(false);
   };
@@ -97,7 +93,7 @@ export const Hero = () => {
 
   const downloadCVHandler = async () => {
     // Replace with the actual URL of your CV file
-    const cvFileUrl = "https://wang.liao.sh/resume/WangLiao_UNSW_23m9.pdf";
+    const cvFileUrl = "https://wang.liao.sh/resume/WangLiao_UNSW_24m2.pdf";
 
     try {
       const response = await fetch(cvFileUrl);
@@ -106,7 +102,7 @@ export const Hero = () => {
 
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "WangLiao_UNSW_23m9.pdf"; // Set the desired filename
+      anchor.download = "WangLiao_UNSW_24m2.pdf"; // Set the desired filename
       anchor.style.display = "none";
 
       document.body.appendChild(anchor);
@@ -116,11 +112,7 @@ export const Hero = () => {
       // Clean up the object URL
       URL.revokeObjectURL(url);
     } catch (error) {
-      openNotification(
-        "top",
-        "Failed to download CV!",
-        "Please try again."
-      );
+      openNotification("top", "Failed to download CV!", "Please try again.");
     }
 
     confetti({
@@ -206,10 +198,29 @@ export const Hero = () => {
             size={"$lg"}
             span
           >
-            ☁️ 💻 Wang has a strong interest and proven expertise in Cloud +
-            Full Stack Development.
+            💻 &nbsp; I am currently working as a Graduate
+            Quality Engineer&nbsp;@&nbsp;
+            <Text
+              css={{
+                display: "inline",
+              }}
+              color="primary"
+              size={"$lg"}
+              span
+            >
+              Tyro Payments.
+            </Text>
           </Text>
-
+          <Text
+            css={{
+              color: "$accents8",
+              maxWidth: "400px",
+            }}
+            size={"$lg"}
+            span
+          >
+            ☁️ &nbsp; I love my job, also quite into learning Cloud  & Web Development.
+          </Text>
           <Flex
             css={{
               gap: "$8",
@@ -317,14 +328,6 @@ export const Hero = () => {
                 alignItems: "center",
               }}
             >
-              <CheckIcon /> 1 &times; Casual SWE
-            </Flex>
-            <Flex
-              css={{
-                color: "$accents7",
-                alignItems: "center",
-              }}
-            >
               <CheckIcon /> 3 &times; AWS Certified
             </Flex>
             <Flex
@@ -333,7 +336,7 @@ export const Hero = () => {
                 alignItems: "center",
               }}
             >
-              <CheckIcon /> 4 &times; Internship
+              <CheckIcon /> 12 &times; Experiences
             </Flex>
           </Flex>
         </Box>

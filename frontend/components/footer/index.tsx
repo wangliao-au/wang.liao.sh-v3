@@ -259,7 +259,7 @@ export const Footer = () => {
                 gap: "$6",
               }}
             >
-              <Text h6>CC BY-NC-SA 4.0 © 2022-2023 LIAO, Wang</Text>
+              <Text h6>CC BY-NC-SA 4.0 © 2023-2024 LIAO, Wang</Text>
             </Flex>
           </Flex>
         </Box>

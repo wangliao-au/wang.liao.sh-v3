@@ -160,7 +160,7 @@ export const Nav = () => {
                 onAction={(key) => {
                   switch (key) {
                     case "event_star":
-                      window.open("https://eventstar-app.liao.sh/");
+                      window.open("https://eventstar.netlify.app/");
                       break;
                     case "big_brain":
                       window.open("https://github.com/wangliao-au/bigbrain");

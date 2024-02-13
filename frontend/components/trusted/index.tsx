@@ -5,7 +5,7 @@ import { Flex } from "../styles/flex";
 
 export const Trusted = () => {
   const { theme } = useTheme();
-  const [brightIcon, setBrightIcon] = useState("");
+  const [tyroIcon, setTyroIcon] = useState("");
   const [isMobileWidth, setIsMobileWidth] = useState(false);
 
   useEffect(() => {
@@ -24,16 +24,16 @@ export const Trusted = () => {
       const newIcon =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "bright-dark.png"
-          : "bright-light.png";
-      setBrightIcon(newIcon);
+          ? "tyro.svg"
+          : "tyro.svg";
+      setTyroIcon(newIcon);
       return;
     }
   }, []);
 
-  useEffect (() => {
-    const newIcon = theme === "dark" ? "bright-dark.png" : "bright-light.png";    
-    setBrightIcon(newIcon);
+  useEffect(() => {
+    const newIcon = theme === "dark" ? "tyro.svg" : "tyro.svg";
+    setTyroIcon(newIcon);
   }, [theme]);
 
   return (
@@ -44,7 +44,7 @@ export const Trusted = () => {
         css={{
           px: "$6",
           pt: "$20",
-          minHeight: "60vh",
+          minHeight: "40vh",
           "@md": {
             px: "$64",
           },
@@ -53,7 +53,7 @@ export const Trusted = () => {
         <Text h2 css={{ textAlign: "center" }}>
           I'm proud to have worked with{" "}
           <Text span css={{ color: "$primary" }}>
-            6+
+            7+
           </Text>{" "}
           companies and organizations
         </Text>
@@ -83,6 +83,20 @@ export const Trusted = () => {
             }}
           >
             <Grid sm={4} xs={6} justify="center">
+              <Flex align={"center"}>
+                <img
+                  src={`/icons/${tyroIcon}`}
+                  alt="Tyro"
+                  width="70"
+                  height="70"
+                />
+                &nbsp;&nbsp;
+                <Text weight={"semibold"} span size={"$lg"}>
+                  Tyro
+                </Text>
+              </Flex>
+            </Grid>
+            <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"} justify={"center"}>
                 <img
                   src={"/icons/volvo.svg"}
@@ -107,14 +121,6 @@ export const Trusted = () => {
             </Grid>
             <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"}>
-                <img src={"/icons/qad.png"} alt="QAD" width="80" height="80" />
-                <Text weight={"semibold"} span size={"$lg"}>
-                  QAD
-                </Text>
-              </Flex>
-            </Grid>
-            <Grid sm={4} xs={6} justify="center">
-              <Flex align={"center"}>
                 <img
                   src={"/icons/warrane.png"}
                   alt="Warrane"
@@ -129,15 +135,9 @@ export const Trusted = () => {
             </Grid>
             <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"}>
-                <img
-                  src={`/icons/${brightIcon}`}
-                  alt="Bright"
-                  width="45"
-                  height="45"
-                />
-                &nbsp;&nbsp;
+                <img src={"/icons/qad.png"} alt="QAD" width="80" height="80" />
                 <Text weight={"semibold"} span size={"$lg"}>
-                  Bright
+                  QAD
                 </Text>
               </Flex>
             </Grid>
@@ -170,12 +170,26 @@ export const Trusted = () => {
             }}
           >
             <Grid sm={4} xs={6} justify="center">
+              <Flex align={"center"}>
+                <img
+                  src={`/icons/${tyroIcon}`}
+                  alt="Tyro"
+                  width="60"
+                  height="60"
+                />
+                &nbsp;&nbsp;
+                <Text weight={"semibold"} span size={"$lg"}>
+                  Tyro
+                </Text>
+              </Flex>
+            </Grid>
+            <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"} justify={"center"}>
                 <img
                   src={"/icons/volvo.svg"}
                   alt="Volvo"
-                  width="45"
-                  height="45"
+                  width="40"
+                  height="40"
                 />
                 &nbsp;&nbsp;
                 <Text weight={"semibold"} span size={"$lg"}>
@@ -199,6 +213,15 @@ export const Trusted = () => {
             </Grid>
             <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"}>
+                <img src={"/icons/ibm.png"} alt="IBM" width="80" height="80" />
+                &nbsp;
+                <Text weight={"semibold"} span size={"$lg"}>
+                  IBM
+                </Text>
+              </Flex>
+            </Grid>
+            <Grid sm={4} xs={6} justify="center">
+              <Flex align={"center"}>
                 <img
                   src={"/icons/csesoc.jpeg"}
                   alt="CSESoc"
@@ -213,32 +236,9 @@ export const Trusted = () => {
             </Grid>
             <Grid sm={4} xs={6} justify="center">
               <Flex align={"center"}>
-                <img src={"/icons/ibm.png"} alt="IBM" width="80" height="80" />
-                &nbsp;
-                <Text weight={"semibold"} span size={"$lg"}>
-                  IBM
-                </Text>
-              </Flex>
-            </Grid>
-            <Grid sm={4} xs={6} justify="center">
-              <Flex align={"center"}>
                 <img src={"/icons/qad.png"} alt="QAD" width="80" height="80" />
                 <Text weight={"semibold"} span size={"$lg"}>
                   QAD
-                </Text>
-              </Flex>
-            </Grid>
-            <Grid sm={4} xs={6} justify="center">
-              <Flex align={"center"}>
-                <img
-                  src={`/icons/${brightIcon}`}
-                  alt="Bright"
-                  width="45"
-                  height="45"
-                />
-                &nbsp;&nbsp;
-                <Text weight={"semibold"} span size={"$lg"}>
-                  Bright
                 </Text>
               </Flex>
             </Grid>

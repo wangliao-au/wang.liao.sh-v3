@@ -26,6 +26,7 @@ export const Testimonials = () => {
           alignItems: "center",
           px: "$6",
           mt: "$20",
+          minHeight: "40vh",
           "@sm": {
             mt: "$0",
             justifyContent: "space-around",
@@ -66,14 +67,14 @@ export const Testimonials = () => {
           </Flex>
           <Text span css={{ color: "$accents8", maxW: "550px", pb: "$8" }}>
             EventStar is a fully responsive, cloud-based B2C event management
-            platform that empowers organizations to create, manage, sell tickets,
-            and track statistics. It also provides a seamless experience for
-            users to discover and purchase tickets to events.
+            platform that empowers organizations to create, manage, sell
+            tickets, and track statistics. It also provides a seamless
+            experience for users to discover and purchase tickets to events.
           </Text>
           <Button
             color="gradient"
             shadow
-            onClick={() => window.open("https://eventstar-app.liao.sh/")}
+            onClick={() => window.open("https://eventstar.netlify.app/")}
             css={{ mt: "$8", zIndex: 0 }}
             ghost
             iconRight={<AppsIcon />}
@@ -90,13 +91,14 @@ export const Testimonials = () => {
           />
         </Flex>
       </Flex>
-      {/* <Divider
+      <Divider
         css={{
           position: "absolute",
           inset: "0p",
           left: "0",
           mt: "$5",
-        }} */}
+        }}
+      />
     </>
   );
 };
