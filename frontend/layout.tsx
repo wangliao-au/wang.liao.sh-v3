@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Wang Liao",
   description: "Wang LIAO, SDET / QE at Tyro Payments",
-  metadataBase: new URL("https://wang-liao-sh-v3.vercel.app/"),
+  metadataBase: new URL("https://wang-liao.vercel.app//"),
   authors: [
     { name: "LIAO Wang" },
     { name: "Wang Liao" },
