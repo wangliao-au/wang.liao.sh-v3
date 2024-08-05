@@ -47,7 +47,10 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
       localStorage.setItem("token", response.token);
     }
     setVisible(false);
-    openNotification("topRight", response.message);
+    openNotification(
+      "topRight",
+      "Server is terminated due to unaffordable hosting cost. 😢"
+    );
     setEmail("");
     setPassword("");
     setIsLoading(false);
@@ -163,7 +166,10 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
       confirmPassword: confirmPassword,
     });
     setVisible(false);
-    openNotification("topRight", response.message);
+    openNotification(
+      "topRight",
+      "Server is terminated due to unaffordable hosting cost. 😢"
+    );
     setEmail("");
     setPassword("");
     setConfirmPassword("");

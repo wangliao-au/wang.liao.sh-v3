@@ -75,7 +75,11 @@ export const Hero = () => {
         origin: { y: 0.6 },
       });
     } else {
-      openNotification("topRight", response.message, "Please try again.");
+      openNotification(
+        "topRight",
+        response.message,
+        "Server is terminated due to unaffordable hosting cost. 😢"
+      );
     }
     setIsLoading(false);
   };
@@ -93,7 +97,8 @@ export const Hero = () => {
 
   const downloadCVHandler = async () => {
     // Replace with the actual URL of your CV file
-    const cvFileUrl = "https://https://wang-liao-sh-v3.vercel.app//resume/WangLiao_CV_24m8.pdf";
+    const cvFileUrl =
+      "https://https://wang-liao-sh-v3.vercel.app//resume/WangLiao_CV_24m8.pdf";
 
     try {
       const response = await fetch(cvFileUrl);
@@ -198,8 +203,8 @@ export const Hero = () => {
             size={"$lg"}
             span
           >
-            💻 &nbsp; I am currently working as a Graduate
-            Quality Engineer&nbsp;@&nbsp;
+            💻 &nbsp; I am currently working as a Graduate Quality
+            Engineer&nbsp;@&nbsp;
             <Text
               css={{
                 display: "inline",
@@ -219,7 +224,8 @@ export const Hero = () => {
             size={"$lg"}
             span
           >
-            ☁️ &nbsp; I love my job, also quite into learning Cloud  & Web Development.
+            ☁️ &nbsp; I love my job, also quite into learning Cloud & Web
+            Development.
           </Text>
           <Flex
             css={{

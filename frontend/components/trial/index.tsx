@@ -66,7 +66,7 @@ export const Trial = () => {
       openNotification(
         "topRight",
         response.message,
-        "Please try again."
+        "Server is terminated due to unaffordable hosting cost. 😢"
       );
     }
     setIsLoading(false);
