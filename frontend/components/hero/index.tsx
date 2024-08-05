@@ -98,7 +98,7 @@ export const Hero = () => {
   const downloadCVHandler = async () => {
     // Replace with the actual URL of your CV file
     const cvFileUrl =
-      "https://https://wang-liao-sh-v3.vercel.app//resume/WangLiao_CV_24m8.pdf";
+      "https://wang-liao-sh-v3.vercel.app/resume/WangLiao_CV_24m8.pdf";
 
     try {
       const response = await fetch(cvFileUrl);
