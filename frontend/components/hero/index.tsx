@@ -93,7 +93,7 @@ export const Hero = () => {
 
   const downloadCVHandler = async () => {
     // Replace with the actual URL of your CV file
-    const cvFileUrl = "https://wang.liao.sh/resume/WangLiao_UNSW_24m2.pdf";
+    const cvFileUrl = "https://https://wang-liao-sh-v3.vercel.app//resume/WangLiao_CV_24m8.pdf";
 
     try {
       const response = await fetch(cvFileUrl);
@@ -102,7 +102,7 @@ export const Hero = () => {
 
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "WangLiao_UNSW_24m2.pdf"; // Set the desired filename
+      anchor.download = "WangLiao_CV_24m8.pdf"; // Set the desired filename
       anchor.style.display = "none";
 
       document.body.appendChild(anchor);
