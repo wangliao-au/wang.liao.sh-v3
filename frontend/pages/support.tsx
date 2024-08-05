@@ -13,7 +13,7 @@ export default function Support(): JSX.Element {
     <>
       <Nav />
       <Box as="main">
-        { getters.isVerified ? <Help /> : <RequireSignIn /> }
+        {getters.isVerified ? <Help /> : <RequireSignIn />}
         <Faq />
         <Footer />
       </Box>

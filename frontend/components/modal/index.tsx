@@ -22,7 +22,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -49,7 +49,7 @@ export const ModalLogin = ({ isSupport }: ModalProps) => {
     setVisible(false);
     openNotification(
       "topRight",
-      "Server is terminated due to unaffordable hosting cost. 😢"
+      "Server is terminated due to unaffordable hosting cost. 😢",
     );
     setEmail("");
     setPassword("");
@@ -144,7 +144,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -168,7 +168,7 @@ export const ModalSignUp = ({ isSupport }: ModalProps) => {
     setVisible(false);
     openNotification(
       "topRight",
-      "Server is terminated due to unaffordable hosting cost. 😢"
+      "Server is terminated due to unaffordable hosting cost. 😢",
     );
     setEmail("");
     setPassword("");

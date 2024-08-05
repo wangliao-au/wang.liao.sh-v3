@@ -26,7 +26,7 @@ export const Help = () => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -46,7 +46,7 @@ export const Help = () => {
       openNotification(
         "topRight",
         "Your request has been sent!",
-        "I will get back to you as soon as possible."
+        "I will get back to you as soon as possible.",
       );
       confetti({
         particleCount: 100,
@@ -57,7 +57,7 @@ export const Help = () => {
       openNotification(
         "topRight",
         response.message,
-        "Server is terminated due to unaffordable hosting cost. 😢"
+        "Server is terminated due to unaffordable hosting cost. 😢",
       );
     }
     setIsLoading(false);
@@ -86,10 +86,19 @@ export const Help = () => {
         }}
       >
         <Flex>
-          <Card css={{ width: "350px", "@sm": { width: "400px" }, minHeight: "400px" }}>
+          <Card
+            css={{
+              width: "350px",
+              "@sm": { width: "400px" },
+              minHeight: "400px",
+            }}
+          >
             {isLoading ? (
               <>
-                <Card.Body css={{ py: "$14", px: "$16" }} style={{ display: "flex", justifyContent: "center" }}>
+                <Card.Body
+                  css={{ py: "$14", px: "$16" }}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <Loading type="gradient" />
                 </Card.Body>
                 <Card.Footer></Card.Footer>

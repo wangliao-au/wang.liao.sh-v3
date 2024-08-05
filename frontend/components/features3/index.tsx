@@ -94,8 +94,8 @@ export const Features3 = () => {
                   <Text h4>Hiking</Text>
                   <Text span>
                     it's my escape from screens and my date with nature's
-                    finest. Thrill? Uncharted paths and terrain that makes
-                    my heart race.
+                    finest. Thrill? Uncharted paths and terrain that makes my
+                    heart race.
                   </Text>
                 </Flex>
               </Flex>

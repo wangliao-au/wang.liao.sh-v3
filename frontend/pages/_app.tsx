@@ -26,7 +26,7 @@ type ContextValue = {
   };
   setters: {
     setIsVerified: Dispatch<SetStateAction<boolean>>;
-    setIsAuth:Dispatch<SetStateAction<boolean>>;
+    setIsAuth: Dispatch<SetStateAction<boolean>>;
   };
 };
 

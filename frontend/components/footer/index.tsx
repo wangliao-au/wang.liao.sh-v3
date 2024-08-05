@@ -159,7 +159,7 @@ export const Footer = () => {
                   onClick={() =>
                     window.open(
                       "https://www.linkedin.com/in/wangliao-au/",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >

@@ -1,11 +1,11 @@
 import { Divider, Text } from "@nextui-org/react";
 import React from "react";
-import HtmlIcon from '@mui/icons-material/Html';
-import TerminalIcon from '@mui/icons-material/Terminal';
-import CloudDoneIcon from '@mui/icons-material/CloudDone';
-import BugReportIcon from '@mui/icons-material/BugReport';
+import HtmlIcon from "@mui/icons-material/Html";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import CloudDoneIcon from "@mui/icons-material/CloudDone";
+import BugReportIcon from "@mui/icons-material/BugReport";
 import { Flex } from "../styles/flex";
-import styles from './photo.module.css'
+import styles from "./photo.module.css";
 
 export const Features1 = () => {
   return (
@@ -75,7 +75,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <TerminalIcon fontSize="large"/>
+            <TerminalIcon fontSize="large" />
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Backend
@@ -97,7 +97,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <CloudDoneIcon fontSize="large"/>
+            <CloudDoneIcon fontSize="large" />
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Cloud
@@ -119,7 +119,7 @@ export const Features1 = () => {
               gap: "$5",
             }}
           >
-            <BugReportIcon fontSize="large"/>
+            <BugReportIcon fontSize="large" />
             <Flex direction={"column"}>
               <Text h4 weight={"semibold"}>
                 Quality Assurance
@@ -137,9 +137,9 @@ export const Features1 = () => {
           </Flex>
         </Flex>
         <Flex align={"center"}>
-        <div className={styles['custom-image-container']}>
-      <img src="/wangliao.png" alt="wangliao" width="300px" />
-    </div>
+          <div className={styles["custom-image-container"]}>
+            <img src="/wangliao.png" alt="wangliao" width="300px" />
+          </div>
         </Flex>
       </Flex>
       <Divider

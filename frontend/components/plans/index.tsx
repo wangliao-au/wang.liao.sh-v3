@@ -242,7 +242,7 @@ export const Plans = () => {
       </Flex>
 
       <Divider
-        css={{ position: 'absolute', inset: '0p', left: '0', mt: '$20' }}
+        css={{ position: "absolute", inset: "0p", left: "0", mt: "$20" }}
       />
     </>
   );

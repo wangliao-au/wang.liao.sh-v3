@@ -27,7 +27,7 @@ export const Trial = () => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -55,7 +55,7 @@ export const Trial = () => {
       openNotification(
         "topRight",
         "Thank you for your message!",
-        "I will get back to you as soon as possible."
+        "I will get back to you as soon as possible.",
       );
       confetti({
         particleCount: 100,
@@ -66,7 +66,7 @@ export const Trial = () => {
       openNotification(
         "topRight",
         response.message,
-        "Server is terminated due to unaffordable hosting cost. 😢"
+        "Server is terminated due to unaffordable hosting cost. 😢",
       );
     }
     setIsLoading(false);

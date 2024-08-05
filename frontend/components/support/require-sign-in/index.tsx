@@ -73,7 +73,7 @@ export const RequireSignIn = () => {
         css={{
           position: "absolute",
           inset: "0p",
-          left: "0",  
+          left: "0",
         }}
       />
     </>

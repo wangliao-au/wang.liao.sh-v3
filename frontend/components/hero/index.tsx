@@ -35,7 +35,7 @@ export const Hero = () => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -68,7 +68,7 @@ export const Hero = () => {
       openNotification(
         "topRight",
         "Thank you for your message!",
-        "I will get back to you as soon as possible."
+        "I will get back to you as soon as possible.",
       );
       confetti({
         particleCount: 100,
@@ -79,7 +79,7 @@ export const Hero = () => {
       openNotification(
         "topRight",
         response.message,
-        "Server is terminated due to unaffordable hosting cost. 😢"
+        "Server is terminated due to unaffordable hosting cost. 😢",
       );
     }
     setIsLoading(false);
@@ -129,7 +129,7 @@ export const Hero = () => {
     openNotification(
       "top",
       "Successfully downloaded CV!",
-      "Thank you for your interest."
+      "Thank you for your interest.",
     );
   };
 
@@ -227,7 +227,9 @@ export const Hero = () => {
             size={"$lg"}
             span
           >
-            ☁️ &nbsp; I am quite into enhancing the Testing Experience by leveraging the power of AI, Automation, Cloud, and Web Development technologies.
+            ☁️ &nbsp; I am quite into enhancing the Testing Experience by
+            leveraging the power of AI, Automation, Cloud, and Web Development
+            technologies.
           </Text>
           <Flex
             css={{

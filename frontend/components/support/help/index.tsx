@@ -13,16 +13,16 @@ import SendIcon from "@mui/icons-material/Send";
 import confetti from "canvas-confetti";
 import { notification } from "antd";
 import type { NotificationPlacement } from "antd/es/notification/interface";
-import Face2Icon from '@mui/icons-material/Face2';
+import Face2Icon from "@mui/icons-material/Face2";
 
 export const Help = () => {
   const [email, setEmail] = useState("");
   const [request, setRequest] = useState("");
   const [api, contextHolder] = notification.useNotification();
-    const openNotification = (
+  const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -33,7 +33,11 @@ export const Help = () => {
   };
 
   const sendRequestHandler = () => {
-    openNotification("topRight", "Your request has been sent!", "I will get back to you as soon as possible.");
+    openNotification(
+      "topRight",
+      "Your request has been sent!",
+      "I will get back to you as soon as possible.",
+    );
     confetti({
       particleCount: 100,
       spread: 70,
@@ -63,7 +67,7 @@ export const Help = () => {
         }}
       >
         <Flex>
-        <Card css={{ width: "350px", "@sm": { width: "400px" } }}>
+          <Card css={{ width: "350px", "@sm": { width: "400px" } }}>
             <Card.Body css={{ pt: "$14", pb: "$8", px: "$16" }}>
               <Input
                 css={{ pb: "$14" }}

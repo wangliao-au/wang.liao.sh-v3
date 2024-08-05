@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  transpilePackages: ['three'],
+  transpilePackages: ["three"],
   cssModules: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -18,10 +18,10 @@ export default function Drone() {
     const handleResize = () => {
       setIsMobileWidth(window.innerWidth < 768);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -82,11 +82,11 @@ export default function Drone() {
 
 function Suzi(props) {
   const { scene, materials } = useGLTF(
-    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/suzanne-high-poly/model.gltf"
+    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/suzanne-high-poly/model.gltf",
   );
   useLayoutEffect(() => {
     scene.traverse(
-      (obj) => obj.isMesh && (obj.receiveShadow = obj.castShadow = true)
+      (obj) => obj.isMesh && (obj.receiveShadow = obj.castShadow = true),
     );
     materials.default.color.set("orange");
     materials.default.roughness = 0;
@@ -94,7 +94,7 @@ function Suzi(props) {
       new FlakesTexture(),
       THREE.UVMapping,
       THREE.RepeatWrapping,
-      THREE.RepeatWrapping
+      THREE.RepeatWrapping,
     );
     materials.default.normalMap.repeat.set(40, 40);
     materials.default.normalScale.set(0.1, 0.1);

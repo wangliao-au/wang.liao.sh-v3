@@ -59,7 +59,7 @@ export const Nav = () => {
   const openNotification = (
     placement: NotificationPlacement,
     msg: string,
-    description?: string
+    description?: string,
   ) => {
     api.info({
       duration: 3.5,
@@ -87,7 +87,7 @@ export const Nav = () => {
       openNotification(
         "topRight",
         "Thank you for your message!",
-        "I will get back to you as soon as possible."
+        "I will get back to you as soon as possible.",
       );
       confetti({
         particleCount: 100,
@@ -98,7 +98,7 @@ export const Nav = () => {
       openNotification(
         "topRight",
         response.message,
-        "Server is terminated due to unaffordable hosting cost. 😢"
+        "Server is terminated due to unaffordable hosting cost. 😢",
       );
     }
     setIsLoading(false);
@@ -170,7 +170,7 @@ export const Nav = () => {
                       break;
                     case "chat_gpt":
                       window.open(
-                        "https://github.com/wangliao-au/chatGPT-clone"
+                        "https://github.com/wangliao-au/chatGPT-clone",
                       );
                       break;
                     case "dodo_stream":

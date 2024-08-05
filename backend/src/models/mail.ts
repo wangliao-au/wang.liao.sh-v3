@@ -1,14 +1,13 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from "mongoose";
 
 interface Mail extends Document {
-    email: string;
-    message: string;
+  email: string;
+  message: string;
 }
 
 const userSchema = new Schema<Mail>({
-    email: { type: String, required: true },
-    message: { type: String, required: true },
+  email: { type: String, required: true },
+  message: { type: String, required: true },
 });
 
-export default mongoose.model<Mail>('Mail', userSchema);
-
+export default mongoose.model<Mail>("Mail", userSchema);

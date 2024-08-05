@@ -27,7 +27,9 @@ const Home: NextPage = () => {
         <Trial />
         <Footer />
         <Button
-          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           css={{ position: "fixed", bottom: "5%", right: "5%" }}
           auto
           shadow
