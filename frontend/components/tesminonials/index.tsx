@@ -49,7 +49,7 @@ export const Testimonials = () => {
           }}
         >
           <Text span css={{ color: "$primary" }}>
-            Most Recent Project
+            Most Valued Project
           </Text>
           <Flex
             css={{ gap: "$3", pb: "10pt" }}

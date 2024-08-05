@@ -20,6 +20,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Face2Icon from "@mui/icons-material/Face2";
 import apiRequest from "../../utils/api";
 import { Loading } from "@nextui-org/react";
+import Link from "next/link";
 
 type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
@@ -213,7 +214,9 @@ export const Hero = () => {
               size={"$lg"}
               span
             >
-              Tyro Payments.
+              <Link href="https://www.tyro.com/" replace>
+                Tyro Payments.
+              </Link>
             </Text>
           </Text>
           <Text
@@ -224,8 +227,7 @@ export const Hero = () => {
             size={"$lg"}
             span
           >
-            ☁️ &nbsp; I love my job, also quite into learning Cloud & Web
-            Development.
+            ☁️ &nbsp; I am quite into enhancing the Testing Experience by leveraging the power of AI, Automation, Cloud, and Web Development technologies.
           </Text>
           <Flex
             css={{
